@@ -191,10 +191,10 @@
 <span class="material-symbols-outlined text-sm" data-icon="directions">directions</span>
                         Get Directions
                     </button>
-<button class="flex-1 bg-secondary-container text-on-secondary-container font-label-md text-label-md h-11 rounded-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<a href="../schedule_appointment/code.html" class="flex-1 bg-secondary-container text-on-secondary-container font-label-md text-label-md h-11 rounded-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
 <span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
                         Book Visit
-                    </button>
+                    </a>
 </div>
 </div>
 </div>
@@ -207,22 +207,21 @@
 </main>
 <!-- Bottom Navigation Shell -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface shadow-[0_-4px_20px_rgba(30,41,59,0.05)] z-50">
-<!-- Directory active as we are in Map/Search view -->
-<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-95 transition-all duration-200">
-<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
-<span class="font-label-sm text-label-sm">Directory</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95">
-<span class="material-symbols-outlined" data-icon="event">event</span>
-<span class="font-label-sm text-label-sm">Appointments</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95">
-<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
-<span class="font-label-sm text-label-sm">Records</span>
-</div>
-<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-label-sm text-label-sm">Profile</span>
-</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all duration-200 active:scale-95" href="../citycare_final_mobile_dashboard/code.html">
+<span class="material-symbols-outlined font-label-sm" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-all duration-200 active:scale-95" href="../citycare_final_mobile_directory/code.html">
+<span class="material-symbols-outlined font-label-sm" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-sm text-label-sm mt-1">Directory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all duration-200 active:scale-95" href="../citycare_final_mobile_records_portal/code.html">
+<span class="material-symbols-outlined font-label-sm" data-icon="folder_shared">folder_shared</span>
+<span class="font-label-sm text-label-sm mt-1">Records</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined font-label-sm" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
 </nav>
 </body></html>
