@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CityCare - Profile Complete</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#fac67a",
+                    "on-surface": "#111c2d",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary-fixed-dim": "#f1be72",
+                    "tertiary-fixed": "#ffddb0",
+                    "primary": "#074469",
+                    "surface-container-high": "#dee8ff",
+                    "secondary-fixed": "#94f990",
+                    "primary-fixed": "#cde5ff",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "outline": "#72787f",
+                    "inverse-primary": "#9ccbf7",
+                    "primary-fixed-dim": "#9ccbf7",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#316289",
+                    "tertiary": "#5a3b00",
+                    "secondary-container": "#91f78e",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "surface": "#f9f9ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#006e1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#a5d4ff",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-primary-fixed": "#001d32",
+                    "background": "#f9f9ff",
+                    "primary-container": "#2a5c82",
+                    "on-secondary-fixed-variant": "#005313",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary-fixed": "#281800",
+                    "outline-variant": "#c1c7cf",
+                    "on-secondary-container": "#00731e",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#76510e",
+                    "on-secondary-fixed": "#002204",
+                    "on-background": "#111c2d",
+                    "inverse-surface": "#263143",
+                    "surface-variant": "#d8e3fb",
+                    "on-surface-variant": "#41474e",
+                    "surface-dim": "#cfdaf2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "md": "24px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "margin-desktop": "80px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "lg": "48px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col items-center justify-center overflow-x-hidden">
+<!-- Top Navigation Placeholder (Suppressed as per rules for Success/Confirmation screens) -->
+<!-- The user is in a "Success" state, so we prioritize the content canvas and suppress global nav shells -->
+<main class="w-full max-w-[1280px] px-margin-mobile md:px-margin-desktop flex flex-col items-center justify-center flex-grow">
+<!-- Celebration Container -->
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(30,41,59,0.05)] p-lg md:p-xl flex flex-col items-center text-center">
+<!-- Hero Illustration / Image -->
+<div class="mb-lg w-full h-64 rounded-lg overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist 3D digital illustration of a professional healthcare office environment with soft ambient lighting. The scene features a stylized medical folder and a glowing holographic shield symbol, representing security and profile completion. The color palette uses medical blues and crisp whites, evoking a sense of trust, efficiency, and calmness in a modern clinical setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVupDx2-tctlwCnRuWxgRurRTL6AIbLqcqHNj1nKxCRh8Ivyzrfvlf7S_0_ydP1-v7btj_A3hAsy36Ax1spQxN9wuLuABku7h6gztLANHqRA0GMUC6dR4MlhLK6SpsYHZRldSlKYLB2qfaLpdWfT5lk6N31mbUUq5cH9tAJf37uujgu3iPZiuPFwzvns34iUZhW3QgpnfKi9BvRLfv3K173WtmqU2XVjzzsT_aMAQG4TJaRZlG67aULFPDu-Rvx_1L3Jxt3WbBew"/>
+</div>
+<!-- Success Icon -->
+<div class="mb-base flex items-center justify-center w-20 h-20 rounded-full bg-secondary-container">
+<span class="material-symbols-outlined text-on-secondary-container !text-5xl" style="font-variation-settings: 'FILL' 1;">
+                    check_circle
+                </span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-lg text-headline-lg text-primary mb-xs md:text-headline-lg md:font-headline-lg">
+                You're All Set!
+            </h1>
+<!-- Supporting Text -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-xl">
+                Your clinical profile is now active. You can now access your medical records, schedule appointments, and connect with healthcare providers across the CityCare network.
+            </p>
+<!-- Action Area -->
+<div class="flex flex-col sm:flex-row gap-gutter w-full justify-center">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-xl py-base rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                    Go to Dashboard
+                </button>
+</div>
+</div>
+<!-- Trust Badges / Footer Info -->
+<div class="mt-xl flex flex-col items-center gap-base opacity-60">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-sm">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Secure Healthcare Network</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+                ID: #CITY-8821 • Profile Verified by CityCare Infrastructure
+            </p>
+</div>
+</main>
+<!-- Bottom Padding for Mobile spacing if needed (though NavBar is suppressed) -->
+<div class="h-margin-mobile"></div>
+</body></html>

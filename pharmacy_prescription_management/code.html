@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PharmaCare Clinician Portal - Prescription Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#3b5b78",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2a5c82",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed": "#001d32",
+                        "surface-container": "#e8eeff",
+                        "surface-container-high": "#dfe8ff",
+                        "on-surface-variant": "#41474e",
+                        "primary-fixed": "#cde5ff",
+                        "outline-variant": "#c1c7cf",
+                        "secondary-fixed": "#d2e4ff",
+                        "on-surface": "#111c2d",
+                        "on-primary-container": "#a5d4ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d8e3fb",
+                        "inverse-on-surface": "#ecf0ff",
+                        "secondary": "#3d608a",
+                        "on-secondary-fixed-variant": "#234970",
+                        "secondary-fixed-dim": "#a6c9f8",
+                        "surface-bright": "#f9f9ff",
+                        "outline": "#72787f",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#273143",
+                        "on-primary-fixed": "#001d32",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "on-tertiary-container": "#b2d2f4",
+                        "surface-dim": "#d0daf2",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#316289",
+                        "secondary-container": "#abcffe",
+                        "primary": "#074469",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f0f3ff",
+                        "on-secondary-container": "#345881",
+                        "tertiary-fixed-dim": "#a9caeb",
+                        "tertiary": "#22435f",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "inverse-primary": "#9ccbf7",
+                        "on-background": "#111c2d",
+                        "tertiary-fixed": "#cee5ff",
+                        "on-secondary-fixed": "#001c37",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#294965",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin_desktop": "40px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container_max_width": "1600px",
+                        "sidebar_width": "260px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-gray-50 group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Main Header (Shared Component) -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-outline-variant bg-surface px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em]">PharmaCare Clinician Portal</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full">
+<div class="text-outline flex border-none bg-surface-container items-center justify-center pl-4 rounded-l border-r-0" data-icon="MagnifyingGlass">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-on-surface focus:outline-0 focus:ring-0 border-none bg-surface-container h-full placeholder:text-outline px-4 rounded-l-none border-l-0 pl-2 text-base font-normal" placeholder="Search patients or meds..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary" href="#">Dashboard</a>
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary" href="#">Patients</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary leading-normal" href="#">Prescriptions</a>
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary" href="#">Reports</a>
+</div>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 bg-surface-container text-on-surface gap-2 text-sm font-bold min-w-0 px-2.5">
+<div class="text-on-surface" data-icon="Bell">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 bg-surface-container text-on-surface gap-2 text-sm font-bold min-w-0 px-2.5">
+<div class="text-on-surface" data-icon="UserCircle">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-outline-variant" data-alt="A professional clinical portrait of a doctor in a modern hospital setting, featuring soft rim lighting and a neutral blue-gray background to match the professional light-mode UI. The clinician is wearing a white lab coat and a stethoscope, conveying expertise and trust within a high-stakes medical environment." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgCf0IU-r8y_VCN1sLT8QQnb_6Cqm0CnjB5EuAvT_jF0VwgkwPlMDJG68TLzEu2I3kzxBfvGM32MJVkbJeo5dEY7WiaU1YH7483a0fvsr8SkLmg3PRE2dhMs7WbUSJwpPe7342uISO9eqXAtTgijdIrCPamXqkfGZpv7bvP7QEPbJz_NSJ9h8k8tMSAbBZaNzWl8Ztsr6VMjexBsu1ykMOMRcBnG_bYKcqVopa2VOwHT4RNLtM9bDhFGfjmbR9FRy_LGP00cO5bQ");'></div>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- Sidebar Navigation -->
+<aside class="w-[260px] border-r border-outline-variant bg-surface flex flex-col justify-between p-4 shrink-0">
+<div class="flex flex-col gap-6">
+<div class="flex flex-col">
+<h1 class="text-on-surface text-base font-bold leading-normal">Pharmacy Central</h1>
+<p class="text-outline text-xs font-normal leading-normal">St. Jude Medical Center</p>
+</div>
+<nav class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="text-on-surface" data-icon="Layout">
+<span class="material-symbols-outlined">dashboard</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Overview</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary-container text-white shadow-sm">
+<div data-icon="Clipboard" data-weight="fill">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+</div>
+<p class="text-sm font-medium">Prescriptions</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="text-on-surface" data-icon="ShieldCheck">
+<span class="material-symbols-outlined">security</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Safety Check</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="text-on-surface" data-icon="Package">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<p class="text-on-surface text-sm font-medium">Inventory</p>
+</div>
+</nav>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-surface-container-low">
+<div class="text-outline" data-icon="Gear">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<p class="text-outline text-sm font-medium">Settings</p>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-background p-10">
+<div class="max-w-[1600px] mx-auto flex flex-col gap-8">
+<!-- Page Header & Stats -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="text-on-surface text-3xl font-black tracking-tight">Prescription Management</h2>
+<p class="text-outline text-base">Monitor active orders and clinical safety alerts in real-time.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex min-w-[140px] flex-col gap-1 rounded-xl bg-surface border border-outline-variant p-4 shadow-sm">
+<p class="text-outline text-xs font-bold uppercase tracking-wider">Pending Orders</p>
+<div class="flex items-baseline gap-2">
+<p class="text-on-surface text-2xl font-bold">12</p>
+<span class="text-emerald-600 text-xs font-bold">+5%</span>
+</div>
+</div>
+<div class="flex min-w-[140px] flex-col gap-1 rounded-xl bg-surface border border-outline-variant p-4 shadow-sm">
+<p class="text-outline text-xs font-bold uppercase tracking-wider">Refill Due</p>
+<div class="flex items-baseline gap-2">
+<p class="text-on-surface text-2xl font-bold">08</p>
+<span class="text-error text-xs font-bold">-2%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Entry Form & Checker -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-gutter">
+<!-- New Prescription Entry -->
+<section class="bg-surface rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant bg-surface-container-low">
+<h3 class="text-on-surface text-lg font-bold">New Prescription Entry</h3>
+</div>
+<form class="p-6 flex flex-col gap-5">
+<div class="flex flex-col gap-2">
+<label class="text-label-md text-on-surface-variant">Patient Name</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-outline rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Search patient database..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-outline">person_search</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md text-on-surface-variant">Medication Search</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-outline rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Enter medication name..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-outline">medication</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-label-md text-on-surface-variant">Dosage</label>
+<select class="w-full bg-surface-container-lowest border-outline rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary">
+<option>5mg</option>
+<option>10mg</option>
+<option>20mg</option>
+<option>50mg</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md text-on-surface-variant">Frequency</label>
+<select class="w-full bg-surface-container-lowest border-outline rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary">
+<option>Once Daily (QD)</option>
+<option>Twice Daily (BID)</option>
+<option>Three Times (TID)</option>
+<option>Every 4 Hours (q4h)</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-md text-on-surface-variant">Special Instructions</label>
+<textarea class="w-full bg-surface-container-lowest border-outline rounded-lg px-4 py-2 text-body-md focus:ring-2 focus:ring-primary" placeholder="Take with food..." rows="2"></textarea>
+</div>
+<button class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-container transition-all flex items-center justify-center gap-2 mt-2">
+<span class="material-symbols-outlined text-lg">add_task</span>
+                                        Issue Prescription
+                                    </button>
+</form>
+</section>
+<!-- Interaction Checker -->
+<section class="bg-surface rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant bg-error-container/20 flex items-center justify-between">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined">warning</span>
+<h3 class="text-lg font-bold">Safety Interaction Checker</h3>
+</div>
+<span class="bg-error text-white text-[10px] font-black px-2 py-0.5 rounded">2 ALERTS</span>
+</div>
+<div class="p-6 flex flex-col gap-4">
+<div class="p-4 rounded-lg bg-error-container/30 border border-error/20">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-on-error-container">Warfarin × Ibuprofen</p>
+<span class="text-[10px] bg-error-container text-on-error-container border border-error px-1.5 py-0.5 rounded font-bold">SEVERE</span>
+</div>
+<p class="text-xs text-on-error-container leading-relaxed">Risk of major bleeding interaction. Concurrent use is contraindicated. Consider Acetaminophen as an alternative for pain management.</p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-highest border border-outline-variant">
+<div class="flex justify-between items-start mb-2">
+<p class="text-sm font-bold text-on-surface">Lisinopril × Potassium Supplement</p>
+<span class="text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded font-bold">MODERATE</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Risk of hyperkalemia. Monitor serum potassium levels within 1 week of initiation.</p>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-1 self-center hover:underline">
+                                        View Full Interaction Report <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Recent Prescriptions -->
+<div class="col-span-12 lg:col-span-7">
+<section class="bg-surface rounded-xl border border-outline-variant shadow-sm h-full flex flex-col overflow-hidden">
+<div class="px-6 py-5 border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<h3 class="text-on-surface text-lg font-bold">Recent Prescriptions</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-bold rounded-full border border-outline-variant hover:bg-surface-container transition-colors">All</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full border border-primary text-primary bg-primary-container/10">Active</button>
+<button class="px-3 py-1 text-xs font-bold rounded-full border border-outline-variant hover:bg-surface-container transition-colors">Pending</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Patient</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Medication</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold text-on-surface">Sarah Jenkins</span>
+<span class="text-[11px] text-outline">ID: #44012</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md text-on-surface">Atorvastatin</span>
+<span class="text-[11px] text-outline">20mg • Oral Tablet</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> ACTIVE
+                                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold text-on-surface">Mark Thompson</span>
+<span class="text-[11px] text-outline">ID: #44055</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md text-on-surface">Amoxicillin</span>
+<span class="text-[11px] text-outline">500mg • Capsule</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Oct 23, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black bg-amber-100 text-amber-800 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> PENDING
+                                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold text-on-surface">Elena Rodriguez</span>
+<span class="text-[11px] text-outline">ID: #44102</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md text-on-surface">Lisinopril</span>
+<span class="text-[11px] text-outline">10mg • Oral Tablet</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Oct 22, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black bg-error-container text-on-error-container border border-error/20">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> REFILL DUE
+                                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold text-on-surface">James Wilson</span>
+<span class="text-[11px] text-outline">ID: #43899</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md text-on-surface">Metformin</span>
+<span class="text-[11px] text-outline">850mg • ER Tablet</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Oct 21, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> ACTIVE
+                                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold text-on-surface">Linda Wu</span>
+<span class="text-[11px] text-outline">ID: #44215</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md text-on-surface">Sertraline</span>
+<span class="text-[11px] text-outline">50mg • Tablet</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-on-surface">Oct 20, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-black bg-emerald-100 text-emerald-800 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> ACTIVE
+                                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 mt-auto border-t border-outline-variant flex justify-between items-center bg-surface-container-low/30">
+<p class="text-xs text-outline font-medium">Showing 5 of 124 prescriptions</p>
+<div class="flex gap-2">
+<button class="p-1.5 rounded border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1.5 rounded border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Clinical Support Panel -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex items-start gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant">
+<div class="p-3 bg-white rounded-lg shadow-sm text-primary">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Recent History</h4>
+<p class="text-xs text-outline mt-1 leading-relaxed">Review the last 30 days of prescribing patterns and dosage adjustments for trend analysis.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant">
+<div class="p-3 bg-white rounded-lg shadow-sm text-primary">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Drug Formulary</h4>
+<p class="text-xs text-outline mt-1 leading-relaxed">Quick access to the current hospital formulary list and insurance coverage protocols.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-surface-container rounded-xl border border-outline-variant">
+<div class="p-3 bg-white rounded-lg shadow-sm text-primary">
+<span class="material-symbols-outlined">contact_support</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Pharmacy Consult</h4>
+<p class="text-xs text-outline mt-1 leading-relaxed">Direct messaging line to the on-call clinical pharmacist for complex medication reviews.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CityCare Clinical Portal - Patient Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#72787f",
+                    "surface-variant": "#d8e3fb",
+                    "surface-container": "#e8eeff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#cde5ff",
+                    "on-secondary-fixed": "#001c37",
+                    "surface-container-highest": "#d8e3fb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#41474e",
+                    "on-surface": "#111c2d",
+                    "on-tertiary-fixed-variant": "#294965",
+                    "tertiary-fixed-dim": "#a9caeb",
+                    "surface": "#f9f9ff",
+                    "inverse-primary": "#9ccbf7",
+                    "tertiary-container": "#3b5b78",
+                    "surface-dim": "#d0daf2",
+                    "surface-tint": "#316289",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "primary-fixed-dim": "#9ccbf7",
+                    "on-tertiary-container": "#b2d2f4",
+                    "error": "#ba1a1a",
+                    "background": "#f9f9ff",
+                    "primary-container": "#2a5c82",
+                    "inverse-surface": "#273143",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#345881",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#234970",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#d2e4ff",
+                    "tertiary-fixed": "#cee5ff",
+                    "primary": "#074469",
+                    "on-error-container": "#93000a",
+                    "on-background": "#111c2d",
+                    "secondary": "#3d608a",
+                    "surface-bright": "#f9f9ff",
+                    "secondary-fixed-dim": "#a6c9f8",
+                    "surface-container-high": "#dfe8ff",
+                    "inverse-on-surface": "#ecf0ff",
+                    "on-tertiary-fixed": "#001d32",
+                    "tertiary": "#22435f",
+                    "outline-variant": "#c1c7cf",
+                    "surface-container-low": "#f0f3ff",
+                    "on-primary-fixed": "#001d32",
+                    "secondary-container": "#abcffe",
+                    "on-primary-container": "#a5d4ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin_desktop": "40px",
+                    "sidebar_width": "260px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container_max_width": "1600px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "code-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f9f9ff;
+      }
+      .onboarding-grid {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    </style>
+</head>
+<body class="text-on-background bg-background min-h-screen flex flex-col">
+<!-- Top Navigation Bar (Simplified for Onboarding) -->
+<header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-40 bg-surface/95 backdrop-blur-sm border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="text-title-lg font-title-lg font-bold text-primary">CityCare Clinical Portal</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Step 1 of 4</span>
+<div class="w-32 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-1/4 h-full bg-primary"></div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center py-12 px-gutter">
+<div class="w-full max-container_max_width">
+<!-- Hero Header Section -->
+<div class="mb-12 text-center max-w-2xl mx-auto">
+<h1 class="text-headline-lg font-headline-lg text-on-surface mb-2">Welcome to Your Care Journey</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">To provide you with the highest quality clinical care, we need to verify your identity and set up your secure patient record.</p>
+</div>
+<!-- Main Onboarding Content Layout -->
+<div class="onboarding-grid">
+<!-- Left Column: Form Section -->
+<div class="space-y-unit flex flex-col gap-6">
+<!-- Identity Section Card -->
+<section class="bg-white border border-outline-variant p-8 rounded-lg">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Personal Information</h2>
+</div>
+<form class="grid grid-cols-2 gap-6">
+<div class="col-span-1">
+<label class="block text-label-md font-label-md text-on-surface mb-2">Legal First Name</label>
+<input class="w-full h-12 px-4 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-body-md font-body-md bg-surface-container-low" placeholder="John" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="block text-label-md font-label-md text-on-surface mb-2">Legal Last Name</label>
+<input class="w-full h-12 px-4 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-body-md font-body-md bg-surface-container-low" placeholder="Doe" type="text"/>
+</div>
+<div class="col-span-2">
+<label class="block text-label-md font-label-md text-on-surface mb-2">Date of Birth</label>
+<input class="w-full h-12 px-4 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-body-md font-body-md bg-surface-container-low" type="date"/>
+</div>
+<div class="col-span-2">
+<label class="block text-label-md font-label-md text-on-surface mb-2">Social Security Number (Last 4 Digits)</label>
+<input class="w-full h-12 px-4 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-body-md font-body-md bg-surface-container-low" maxlength="4" placeholder="••••" type="password"/>
+<p class="mt-2 text-[11px] text-on-surface-variant leading-tight">Your data is encrypted and used strictly for identity verification against medical records.</p>
+</div>
+</form>
+</section>
+<!-- ID Verification Card -->
+<section class="bg-white border border-outline-variant p-8 rounded-lg">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Identity Verification</h2>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-8">Please upload a clear photo of your government-issued photo ID (Driver's License or Passport).</p>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-12 text-center bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">cloud_upload</span>
+<p class="text-title-lg font-title-lg text-primary mb-1">Click to upload or drag and drop</p>
+<p class="text-body-md font-body-md text-on-surface-variant">PNG, JPG or PDF (max. 10MB)</p>
+</div>
+<div class="mt-8 flex items-start gap-3 p-4 bg-surface-container-lowest border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface">Secure Document Handling</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Documents are automatically deleted from our staging servers once verification is complete.</p>
+</div>
+</div>
+</section>
+<div class="flex justify-between pt-4">
+<button class="px-8 h-12 flex items-center gap-2 border border-primary text-primary font-semibold rounded-lg hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                            Back
+                        </button>
+<button class="px-10 h-12 bg-primary text-on-primary font-semibold rounded-lg hover:bg-primary-container transition-all active:scale-95 shadow-sm">
+                            Save and Continue
+                        </button>
+</div>
+</div>
+<!-- Right Column: Sidebar / Contextual Info -->
+<div class="space-y-6">
+<!-- Progress Stepper Vertical -->
+<div class="bg-white border border-outline-variant p-6 rounded-lg sticky top-24">
+<h3 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider mb-6">Setup Progress</h3>
+<div class="space-y-8">
+<div class="flex gap-4 items-start">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-[12px] font-bold ring-4 ring-primary-fixed">1</div>
+<div>
+<p class="text-body-md font-bold text-on-surface">Identity Verification</p>
+<p class="text-[12px] text-on-surface-variant">Verification of legal documents</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant text-[12px] font-bold">2</div>
+<div>
+<p class="text-body-md font-semibold text-on-surface-variant">Medical History</p>
+<p class="text-[12px] text-on-surface-variant">Pre-existing conditions &amp; meds</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant text-[12px] font-bold">3</div>
+<div>
+<p class="text-body-md font-semibold text-on-surface-variant">Insurance &amp; Billing</p>
+<p class="text-[12px] text-on-surface-variant">Coverage and payment details</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant text-[12px] font-bold">4</div>
+<div>
+<p class="text-body-md font-semibold text-on-surface-variant">Primary Provider</p>
+<p class="text-[12px] text-on-surface-variant">Matching with a clinician</p>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-outline-variant">
+<div class="rounded-xl overflow-hidden mb-4 h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A clean, professional medical clinic interior featuring minimalist blue and white furniture. A friendly nurse is seen in the background interacting with a patient in a well-lit, high-key environment that emphasizes trust, hygiene, and modern healthcare standards. The lighting is soft and airy, creating a welcoming and calm atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSx4c8NRkZL191nGp3cdfhTWo8wg8dHKdST_HCrccqzqzW11G4GbHVgoxXNa8BXuILN5P_G4EE2vOA0kuRU34GreJSPdBHDSw_DNhF_JRiIQFbZHo6cPf9FWMuJnan_yq5onUpzny9p-w0_9R1C-QBU3iS5JOSIAgzSwDruCxbtfphx6rfnQ-VdevpLIv3PaBSx8NLk6vd-DROyIU_cn-ii9p9yyLhnGsGkpZ0Hkgrk5LGq4YiaKktPdYgMgYlNYQObdbT2oLwIQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-4">
+<p class="text-white text-label-md font-label-md">CityCare Downtown Medical Center</p>
+</div>
+</div>
+<h4 class="text-body-md font-bold text-on-surface mb-2">Need help?</h4>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">Our patient advocacy team is available 24/7 to assist with your enrollment.</p>
+<a class="text-primary font-semibold text-body-md hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+                                Chat with a Care Coordinator
+                            </a>
+</div>
+</div>
+<!-- Trust Signals Card -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="text-label-md font-bold text-primary uppercase">HIPAA Compliant</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                            All data is encrypted with AES-256 standards. Your information is shared only with licensed medical professionals assigned to your care team.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant py-8">
+<div class="max-w-container_max_width mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-body-md font-body-md text-on-surface-variant">© 2024 CityCare Health Systems. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Accessibility</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#ecf1ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fac67a",
+                        "on-surface": "#111c2d",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed-dim": "#f1be72",
+                        "tertiary-fixed": "#ffddb0",
+                        "primary": "#074469",
+                        "surface-container-high": "#dee8ff",
+                        "secondary-fixed": "#94f990",
+                        "primary-fixed": "#cde5ff",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "outline": "#72787f",
+                        "inverse-primary": "#9ccbf7",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "secondary-fixed-dim": "#78dc77",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#316289",
+                        "tertiary": "#5a3b00",
+                        "secondary-container": "#91f78e",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#006e1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#a5d4ff",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-primary-fixed": "#001d32",
+                        "background": "#f9f9ff",
+                        "primary-container": "#2a5c82",
+                        "on-secondary-fixed-variant": "#005313",
+                        "surface-container": "#e7eeff",
+                        "on-tertiary-fixed": "#281800",
+                        "outline-variant": "#c1c7cf",
+                        "on-secondary-container": "#00731e",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#76510e",
+                        "on-secondary-fixed": "#002204",
+                        "on-background": "#111c2d",
+                        "inverse-surface": "#263143",
+                        "surface-variant": "#d8e3fb",
+                        "on-surface-variant": "#41474e",
+                        "surface-dim": "#cfdaf2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "md": "24px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "margin-desktop": "80px",
+                        "sm": "12px",
+                        "xl": "64px",
+                        "lg": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #f9f9ff;
+            color: #111c2d;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center">
+<!-- Top Navigation Anchor (Shared Component Mapping) -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full z-50 bg-surface shadow-sm sticky top-0 md:px-margin-desktop">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="medical_services">medical_services</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">CityCare</span>
+</div>
+<div class="hidden md:flex gap-lg">
+<span class="text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-lg cursor-pointer">Help Center</span>
+<span class="text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2 rounded-lg cursor-pointer">Support</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A clean, minimalist profile avatar silhouette against a soft blue background. The style is professional and corporate, using the CityCare palette of clinical blues and soft whites to evoke a sense of security and medical professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCytNocjneGxoDYxeGQJS96_I-W2An6W30miEnoRcNTsbGhXdsfSew3J4EmTCCsutmyIQBVj_jTCu55CyMGHPNBnjODhrzJagk29u6b3gllqGtlyfnAMp5A8Use1uogE1wDTiuF9pllkdvcfTwVtgolFE7_w1biavTppDy_H-joXKUeE0tHDDCvD02DGTKsc5mfyeoA-93Q36wW5aezLfl_i7nz9Pp3hHQV5m5vKzbC_IaZ-HOH3YL0TWqa9LrmAa0CYI1axjg8CA"/>
+</div>
+</header>
+<main class="w-full max-w-[1280px] px-margin-mobile md:px-margin-desktop py-lg flex flex-col gap-xl">
+<!-- Progress Indicator Section -->
+<section class="flex flex-col gap-base w-full max-w-2xl mx-auto">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-wider">Step 2 of 3</p>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface">Insurance &amp; Verification</h1>
+</div>
+<div class="hidden md:block text-right">
+<p class="text-label-md font-label-md text-on-surface-variant">Identity Verified</p>
+<p class="text-label-sm font-label-sm text-secondary flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> 
+                        Complete
+                    </p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+</section>
+<!-- Main Onboarding Content (Bento Style Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter w-full max-w-5xl mx-auto">
+<!-- Form Side -->
+<section class="lg:col-span-7 flex flex-col gap-md">
+<div class="bg-surface-container-lowest p-gutter rounded-xl shadow-[0_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/20">
+<h2 class="text-headline-md font-headline-md text-on-surface mb-base">Plan Details</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mb-gutter">Enter your current medical insurance information to sync your digital health records.</p>
+<form class="flex flex-col gap-md">
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface" for="provider">Insurance Provider</label>
+<div class="relative">
+<select class="w-full h-12 bg-surface-container-low border border-outline-variant rounded-lg px-md appearance-none focus:ring-2 focus:ring-primary focus:border-transparent text-on-surface" id="provider">
+<option>Select a provider</option>
+<option>BlueCross BlueShield</option>
+<option>UnitedHealthcare</option>
+<option>Aetna</option>
+<option>Cigna</option>
+<option>Kaiser Permanente</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface" for="member_id">Member ID / Policy Number</label>
+<input class="w-full h-12 bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent text-on-surface placeholder:text-outline" id="member_id" placeholder="e.g. ABC123456789" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface" for="group_id">Group Number (Optional)</label>
+<input class="w-full h-12 bg-surface-container-low border border-outline-variant rounded-lg px-md focus:ring-2 focus:ring-primary focus:border-transparent text-on-surface placeholder:text-outline" id="group_id" placeholder="e.g. 98765" type="text"/>
+</div>
+</form>
+</div>
+</section>
+<!-- Visual/Scanning Side -->
+<section class="lg:col-span-5 flex flex-col gap-md">
+<!-- Scan Card Callout -->
+<div class="bg-primary text-on-primary p-gutter rounded-xl shadow-lg flex flex-col items-center text-center gap-md relative overflow-hidden">
+<!-- Background pattern decoration -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg fill="none" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<pattern height="40" id="pattern-grid" patternunits="userSpaceOnUse" width="40" x="0" y="0">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"></path>
+</pattern>
+<rect fill="url(#pattern-grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined text-[32px]" data-icon="photo_camera">photo_camera</span>
+</div>
+<h3 class="text-headline-md font-headline-md">Quick Verification</h3>
+<p class="text-label-md font-label-md opacity-90">Don't want to type? Scan the front of your insurance card and we'll fill the details for you.</p>
+<button class="w-full bg-white text-primary font-bold py-3 px-gutter rounded-lg hover:bg-inverse-on-surface transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+                        Scan Insurance Card
+                    </button>
+</div>
+<!-- Guidance Card -->
+<div class="bg-surface-container p-gutter rounded-xl flex items-start gap-base border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="info">info</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface font-bold">Why do we need this?</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Verification ensures that all hospital visits and prescriptions are automatically covered by your plan without manual paperwork.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Footer Navigation (as per requirements for Back/Continue) -->
+<footer class="w-full max-w-5xl mx-auto flex justify-between items-center pt-lg border-t border-outline-variant/30">
+<button class="flex items-center gap-base px-gutter py-3 rounded-lg text-primary font-label-md font-bold hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                Back
+            </button>
+<button class="bg-primary text-white px-xl py-3 rounded-lg font-label-md font-bold hover:bg-primary-container hover:text-on-primary-container transition-all shadow-md active:scale-95 flex items-center gap-base">
+                Continue
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</footer>
+</main>
+<!-- Contextual Information Section (Lower Page) -->
+<section class="w-full bg-surface-container-low py-xl mt-xl">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="flex flex-col gap-base text-center md:text-left">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto md:mx-0">
+<span class="material-symbols-outlined" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<h4 class="text-label-md font-label-md font-bold text-on-surface">Secure Encryption</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Your insurance data is protected by 256-bit AES encryption and HIPAA-compliant servers.</p>
+</div>
+<div class="flex flex-col gap-base text-center md:text-left">
+<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto md:mx-0">
+<span class="material-symbols-outlined" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h4 class="text-label-md font-label-md font-bold text-on-surface">Auto-Verification</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Real-time eligibility checks with major providers to confirm your benefits instantly.</p>
+</div>
+<div class="flex flex-col gap-base text-center md:text-left">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto md:mx-0">
+<span class="material-symbols-outlined" data-icon="cloud_sync">cloud_sync</span>
+</div>
+<h4 class="text-label-md font-label-md font-bold text-on-surface">Cloud Sync</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Access your digital insurance card across all CityCare clinics and participating pharmacies.</p>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation Bar (Mobile Only - Hidden during linear onboarding process but defined as per Shared Components JSON) -->
+<!-- Note: Following the rule of "Linear/Transactional Suppression", the nav is omitted from mobile view here to focus on the form. -->
+</body></html>

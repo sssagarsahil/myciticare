@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CityCare Patient Records Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#294965",
+                      "outline-variant": "#c1c7cf",
+                      "surface": "#f9f9ff",
+                      "tertiary-fixed": "#cee5ff",
+                      "surface-container": "#e8eeff",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#9ccbf7",
+                      "outline": "#72787f",
+                      "background": "#f9f9ff",
+                      "on-primary-container": "#a5d4ff",
+                      "tertiary-fixed-dim": "#a9caeb",
+                      "surface-dim": "#d0daf2",
+                      "surface-tint": "#316289",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed-dim": "#a6c9f8",
+                      "primary-fixed-dim": "#9ccbf7",
+                      "on-tertiary-container": "#b2d2f4",
+                      "tertiary-container": "#3b5b78",
+                      "surface-container-low": "#f0f3ff",
+                      "surface-variant": "#d8e3fb",
+                      "primary-container": "#2a5c82",
+                      "on-tertiary-fixed": "#001d32",
+                      "inverse-surface": "#273143",
+                      "surface-container-high": "#dfe8ff",
+                      "primary": "#074469",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#d8e3fb",
+                      "tertiary": "#22435f",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#d2e4ff",
+                      "on-primary-fixed-variant": "#124a6f",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#001c37",
+                      "on-secondary-container": "#345881",
+                      "on-primary-fixed": "#001d32",
+                      "inverse-on-surface": "#ecf0ff",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f9f9ff",
+                      "secondary-container": "#abcffe",
+                      "on-surface-variant": "#41474e",
+                      "on-background": "#111c2d",
+                      "on-secondary-fixed-variant": "#234970",
+                      "primary-fixed": "#cde5ff",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#3d608a",
+                      "on-surface": "#111c2d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container_max_width": "1600px",
+                      "margin_desktop": "40px",
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "sidebar_width": "260px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "code-md": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c1c7cf; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SIDEBAR -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-low border-r border-outline-variant flex flex-col py-unit">
+<div class="px-gutter py-unit mb-6">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CityCare</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Clinical Portal</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">groups</span>
+<span class="font-body-md">Directory</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">calendar_today</span>
+<span class="font-body-md">Appointments</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-semibold transition-transform active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3">folder_shared</span>
+<span class="font-body-md">Records</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">mail</span>
+<span class="font-body-md">Messages</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">account_circle</span>
+<span class="font-body-md">Profile</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</nav>
+<div class="px-gutter py-unit mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                New Consultation
+            </button>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA -->
+<main class="ml-[260px] min-h-screen flex flex-col">
+<!-- TOP NAVBAR -->
+<header class="h-16 flex justify-between items-center px-gutter bg-surface border-b border-outline-variant sticky top-0 z-10">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 text-body-md focus:outline-none focus:ring-2 focus:ring-primary transition-all" placeholder="Search medical history, reports, or providers..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-gutter">
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">help_outline</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container-high">
+<img alt="Healthcare Provider" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNVOrgfZD6kD1izBUdw1Bz2ZX1SRoxP0lyAiv9kP9x4Q99iVHQFnPGpDeqg2_aBpX9I_aRa-W0U7Qy_qPjFLCePnI8HLtdPRuP-RJ8qMTpVdUBiGpG0hks5t1JZbh4UHDhhCLghQOE-q6PIC8i8hesLI3yvzh1vDg_eT0jTdFA0NO-NmkQRujF9WGQSB-9gEDhKxjbXxLm1qkbdB0Bq8Qb_qQpyIdJmKemehl-3Vl6bXpfR6gkuG8DOzVpEqCwWNI3zx4LnFWb7Q"/>
+</div>
+</div>
+</header>
+<!-- DASHBOARD CANVAS -->
+<div class="p-10 flex-1 flex flex-col gap-gutter max-w-[1600px] mx-auto w-full">
+<!-- HEADER SECTION -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Patient Records</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Comprehensive medical history for Patient #CC-88210</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filters
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg font-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+                        Export All
+                    </button>
+</div>
+</div>
+<!-- CATEGORY TABS -->
+<div class="flex border-b border-outline-variant overflow-x-auto custom-scrollbar">
+<button class="px-6 py-3 border-b-2 border-primary text-primary font-semibold text-body-md whitespace-nowrap">Lab Results</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-medium text-body-md whitespace-nowrap">Imaging</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-medium text-body-md whitespace-nowrap">Immunizations</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-medium text-body-md whitespace-nowrap">Medications</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-medium text-body-md whitespace-nowrap">Consultations</button>
+</div>
+<!-- BENTO GRID CONTENT -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- LABORATORY RESULTS CATEGORY - Spans 8 cols -->
+<section class="col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">biotech</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Recent Laboratory Results</h3>
+</div>
+<a class="text-primary font-label-md flex items-center hover:underline" href="#">Full History <span class="material-symbols-outlined text-[16px] ml-1">arrow_forward</span></a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-6 py-3 font-label-md text-on-surface-variant uppercase tracking-wider">Test Name</th>
+<th class="px-6 py-3 font-label-md text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="px-6 py-3 font-label-md text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-6 py-3 font-label-md text-on-surface-variant uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="font-body-md font-semibold text-on-surface">Comprehensive Metabolic Panel</div>
+<div class="text-[12px] text-on-surface-variant">Ordered by Dr. Henderson</div>
+</td>
+<td class="px-6 py-4 font-body-md text-on-surface-variant">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="font-body-md text-on-surface">Normal</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">visibility</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="font-body-md font-semibold text-on-surface">Lipid Profile</div>
+<div class="text-[12px] text-on-surface-variant">Annual Screening</div>
+</td>
+<td class="px-6 py-4 font-body-md text-on-surface-variant">Sep 15, 2023</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="font-body-md text-on-surface">Normal</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">visibility</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- IMAGING HUB - Spans 4 cols -->
+<section class="col-span-4 bg-primary text-on-primary rounded-xl overflow-hidden relative group">
+<img alt="Medical Imaging Hub" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYN0KpiysqOZNgsDYw_WADuU3e5pz1Yt8t0bAV0cZaP6d1DWaFIb7DUGdAEKziLhxKVl5D3ACkG039lMNona9lVxn8KtW83mST9rXzdBL9fmwFpOu0U9UJJIjmwd8TvksGsGytLY8oTSLgu0tj2CUo7rQTFs4DQNFGeGVU3Pb1F8n24syY-eOKIZgc6zCUWBq7B-frOrYiKdRXfSapjibO6j0xXm844vs-LrVLoiDbG81rbQTYmWZL29cV1YI2Gim3B7B3uwLMWA"/>
+<div class="relative z-10 p-8 flex flex-col h-full justify-between">
+<div>
+<div class="bg-on-primary/10 w-fit p-2 rounded-lg mb-4">
+<span class="material-symbols-outlined text-primary-fixed">radiology</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Imaging Records</h3>
+<p class="font-body-md opacity-90">View high-resolution MRI, X-Ray, and CT scans from our secure cloud viewer.</p>
+</div>
+<button class="bg-white text-primary w-full py-3 rounded-lg font-bold hover:bg-surface-container-high transition-colors mt-8">
+                            Open Image Viewer
+                        </button>
+</div>
+</section>
+<!-- IMMUNIZATIONS CATEGORY - Spans 8 cols -->
+<section class="col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">vaccines</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Immunization Schedule</h3>
+</div>
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-primary">
+<span class="material-symbols-outlined">print</span>
+</button>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-4">
+<div class="bg-primary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+</div>
+<div>
+<div class="font-body-md font-semibold text-on-surface">Influenza (Annual)</div>
+<div class="text-[12px] text-on-surface-variant">Administered Oct 12, 2023</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-4">
+<div class="bg-primary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+</div>
+<div>
+<div class="font-body-md font-semibold text-on-surface">Tdap Booster</div>
+<div class="text-[12px] text-on-surface-variant">Administered Aug 05, 2022</div>
+</div>
+</div>
+<div class="p-4 bg-secondary-container/30 rounded-lg border border-secondary/20 flex items-center gap-4">
+<div class="bg-secondary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container">schedule</span>
+</div>
+<div>
+<div class="font-body-md font-semibold text-on-surface">Pneumococcal</div>
+<div class="text-[12px] text-secondary font-medium">Due: Nov 2024</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-4">
+<div class="bg-primary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+</div>
+<div>
+<div class="font-body-md font-semibold text-on-surface">COVID-19 (Bivalent)</div>
+<div class="text-[12px] text-on-surface-variant">Administered Sep 20, 2022</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SIDEBAR MODULES - Spans 4 cols -->
+<section class="col-span-4 flex flex-col gap-gutter">
+<!-- Secure Compliance Card -->
+<div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant">
+<div class="flex items-start gap-4">
+<div class="bg-primary p-2 rounded-full">
+<span class="material-symbols-outlined text-on-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="font-body-lg font-bold text-on-surface">HIPAA Secured</h4>
+<p class="font-body-md text-on-surface-variant mt-1 leading-snug">Clinical Nexus utilizes AES-256 encryption. Your privacy is our priority.</p>
+</div>
+</div>
+</div>
+<!-- Actionable Status -->
+<div class="bg-error-container text-on-error-container p-6 rounded-xl border border-error/20 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">assignment_late</span>
+<h4 class="font-body-lg font-bold">Action Required</h4>
+</div>
+<span class="bg-error text-on-error px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest">Urgent</span>
+</div>
+<p class="font-body-md leading-relaxed">Please sign the authorization for the MRI Lumbar Spine report release before Nov 2nd.</p>
+<button class="bg-error text-on-error py-2 rounded-lg font-semibold text-body-md hover:opacity-90 transition-opacity">
+                            Sign Authorization
+                        </button>
+</div>
+<!-- Activity Timeline -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 flex-1">
+<h4 class="font-body-lg font-bold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">history</span>
+                            Record Activity
+                        </h4>
+<div class="space-y-8 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 bg-primary rounded-full border-4 border-surface-container-low flex items-center justify-center">
+<div class="w-1.5 h-1.5 bg-on-primary rounded-full"></div>
+</div>
+<div class="text-[12px] font-bold text-primary uppercase">Today</div>
+<div class="text-body-md text-on-surface font-medium">Lab results reviewed by Dr. Chen</div>
+<div class="text-[12px] text-on-surface-variant">10:45 AM • Cardiology Dept</div>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 bg-outline rounded-full border-4 border-surface-container-low flex items-center justify-center">
+<div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+</div>
+<div class="text-[12px] font-bold text-on-surface-variant uppercase">Oct 24, 2023</div>
+<div class="text-body-md text-on-surface font-medium">New Lab Result Posted</div>
+<div class="text-[12px] text-on-surface-variant">9:30 AM • Comprehensive Panel</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- FOOTER INFO -->
+<footer class="mt-auto py-10 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex gap-8 text-[13px] text-on-surface-variant font-medium">
+<a class="hover:text-primary transition-colors" href="#">Legal &amp; Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">HIPAA Compliance</a>
+<a class="hover:text-primary transition-colors" href="#">System Status</a>
+</div>
+<div class="flex flex-col items-end">
+<p class="text-[13px] text-on-surface-variant">© 2023 CityCare Healthcare Systems. All rights reserved.</p>
+<p class="text-[11px] text-outline mt-1 italic uppercase tracking-tighter">Clinical Nexus Environment v4.2.1</p>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#273143",
+                    "primary-fixed": "#cde5ff",
+                    "surface-tint": "#316289",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#3b5b78",
+                    "tertiary": "#22435f",
+                    "outline": "#72787f",
+                    "on-primary-fixed": "#001d32",
+                    "surface": "#f9f9ff",
+                    "secondary-fixed-dim": "#a6c9f8",
+                    "tertiary-fixed-dim": "#a9caeb",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#d2e4ff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#001d32",
+                    "on-tertiary-container": "#b2d2f4",
+                    "primary": "#074469",
+                    "background": "#f9f9ff",
+                    "surface-container": "#e8eeff",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-tertiary-fixed-variant": "#294965",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#ecf0ff",
+                    "inverse-primary": "#9ccbf7",
+                    "on-secondary-fixed": "#001c37",
+                    "surface-variant": "#d8e3fb",
+                    "on-secondary-fixed-variant": "#234970",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "on-surface": "#111c2d",
+                    "on-secondary-container": "#345881",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c1c7cf",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d0daf2",
+                    "secondary": "#3d608a",
+                    "primary-fixed-dim": "#9ccbf7",
+                    "on-primary-container": "#a5d4ff",
+                    "surface-container-low": "#f0f3ff",
+                    "on-surface-variant": "#41474e",
+                    "surface-container-high": "#dfe8ff",
+                    "surface-bright": "#f9f9ff",
+                    "primary-container": "#2a5c82",
+                    "on-background": "#111c2d",
+                    "tertiary-fixed": "#cee5ff",
+                    "secondary-container": "#abcffe",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sidebar_width": "260px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "container_max_width": "1600px",
+                    "margin_desktop": "40px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "code-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-screen w-[260px] z-40 bg-surface-container-low border-r border-outline-variant flex flex-col h-full py-unit px-3">
+<div class="flex items-center gap-3 px-4 py-6 mb-4">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">emergency</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-semibold text-primary">CityCare</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Clinical Portal</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-semibold rounded-xl ease-in-out duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md text-body-md">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-body-md text-body-md">Appointments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-body-md text-body-md">Clinical Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4 pb-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-body-md text-body-md">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md text-body-md">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-30 w-full bg-surface border-b border-outline-variant flex justify-between items-center h-16 px-margin_desktop">
+<div class="flex items-center gap-4">
+<h2 class="font-title-lg text-title-lg font-bold text-primary">Emergency Department</h2>
+<div class="flex items-center gap-2 px-3 py-1 bg-error-container text-on-error-container rounded-full font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                    HIGH CAPACITY
+                </div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="help_outline">help_outline</span>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold">Dr. Sarah Chen</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Chief Resident</p>
+</div>
+<img alt="Provider profile picture" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a female doctor of East Asian descent in her late 30s, wearing a white clinical coat and a stethoscope. She is smiling confidently in a brightly lit, modern hospital corridor with soft blue and white accents. The lighting is high-key and professional, embodying a clean and trustworthy corporate healthcare aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1IJjOk6uA_DxevOUHF8dgxnc5rLpFUUX6KeSDsHBLZD0HKBMhNcqpAIpVwPWlBvnm6EXllW9dUbQPxLwmZ0LiL8CPUxgqK3oVV8-9PIYyJcYzqo3-SO91kiUGdJ6QpEZ21H9LH2hrOQh4l7U7gZT3I14t2FlV1rH8oC6iRSU-DZ1dlnYUMMG3Be889wpXNFEbC6gC7Qv0F9Yrs3SkSF4myxd6ELqfWrYBjpHRzSfrIJNBDnUDc2uchsXue4j9y7NX9CnCiEcQzA"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-margin_desktop max-w-[1600px] mx-auto">
+<!-- Real-time Summary Row -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">ACTIVE PATIENTS</p>
+<span class="material-symbols-outlined text-primary" data-icon="patient_list">patient_list</span>
+</div>
+<p class="font-headline-lg text-headline-lg">142</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+<span class="text-error font-bold">↑ 12%</span> vs last hour
+                    </p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">AVG WAIT TIME</p>
+<span class="material-symbols-outlined text-secondary" data-icon="timer">timer</span>
+</div>
+<p class="font-headline-lg text-headline-lg">42<span class="text-title-lg ml-1 text-on-surface-variant">min</span></p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+<span class="text-primary font-bold">↓ 5m</span> since 08:00
+                    </p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">STAFF RATIO</p>
+<span class="material-symbols-outlined text-tertiary" data-icon="medical_services">medical_services</span>
+</div>
+<p class="font-headline-lg text-headline-lg">1:4.2</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                        Target: <span class="font-bold">1:3.0</span>
+</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<p class="font-label-md text-label-md text-on-surface-variant">BED OCCUPANCY</p>
+<span class="material-symbols-outlined text-error" data-icon="bed">bed</span>
+</div>
+<p class="font-headline-lg text-headline-lg">94%</p>
+<div class="w-full bg-surface-container h-2 rounded-full mt-3 overflow-hidden">
+<div class="bg-error h-full" style="width: 94%"></div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Occupancy Heatmap (Large) -->
+<div class="col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-primary">Department Occupancy Heatmap</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 font-label-md text-label-md bg-surface-container rounded border border-outline-variant">Floor 1</button>
+<button class="px-3 py-1 font-label-md text-label-md bg-primary text-on-primary rounded">Floor 2 (Main ED)</button>
+</div>
+</div>
+<div class="p-8 flex gap-8">
+<div class="flex-1">
+<div class="grid grid-cols-12 gap-1">
+<!-- Generated heatmap cells -->
+<div class="heatmap-cell bg-error/20"></div><div class="heatmap-cell bg-error/40"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/60"></div>
+<div class="heatmap-cell bg-error/80"></div><div class="heatmap-cell bg-error/90"></div><div class="heatmap-cell bg-error/50"></div><div class="heatmap-cell bg-error/30"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/20"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/60"></div><div class="heatmap-cell bg-error/90"></div><div class="heatmap-cell bg-error/95"></div><div class="heatmap-cell bg-error/70"></div>
+<div class="heatmap-cell bg-error/40"></div><div class="heatmap-cell bg-error/20"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/30"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/20"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/40"></div><div class="heatmap-cell bg-error/80"></div>
+<div class="heatmap-cell bg-error/90"></div><div class="heatmap-cell bg-error/60"></div><div class="heatmap-cell bg-error/20"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/30"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/20"></div><div class="heatmap-cell bg-error/40"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+<div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div><div class="heatmap-cell bg-error/10"></div>
+</div>
+<div class="mt-6 flex justify-between text-on-surface-variant font-label-md text-label-md">
+<span>Triage Area</span>
+<span>Trauma Bays</span>
+<span>Observation</span>
+<span>Waiting Rm</span>
+</div>
+</div>
+<div class="w-48 flex flex-col justify-center border-l border-outline-variant pl-8">
+<p class="font-label-md text-label-md text-on-surface-variant mb-4 uppercase">LEGEND</p>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-error"></div>
+<span class="font-body-md text-body-md">Critical</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-error/60"></div>
+<span class="font-body-md text-body-md">Warning</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-error/20"></div>
+<span class="font-body-md text-body-md">Normal</span>
+</div>
+</div>
+<div class="mt-8">
+<p class="text-[10px] text-on-surface-variant font-bold mb-1">DATA REFRESH</p>
+<p class="font-body-md text-body-md">Every 30 seconds</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Resource Health (Vertical Card) -->
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col">
+<div class="px-6 py-4 border-b border-outline-variant">
+<h3 class="font-title-lg text-title-lg text-primary">Resource Health</h3>
+</div>
+<div class="p-6 flex-1 space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="font-bold">VENTILATORS</span>
+<span class="text-on-surface-variant">14 / 16 Available</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[87%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="font-bold text-error">CRITICAL BEDS</span>
+<span class="text-error font-bold">2 / 32 Available</span>
+</div>
+<div class="w-full h-3 bg-error-container rounded-full overflow-hidden">
+<div class="bg-error h-full w-[6%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="font-bold">INFUSION PUMPS</span>
+<span class="text-on-surface-variant">42 / 60 Available</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[70%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="font-bold">OXYGEN SUPPLY</span>
+<span class="text-on-surface-variant">92% Level</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[92%]"></div>
+</div>
+</div>
+<div class="mt-4 p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-error" data-icon="report_problem">report_problem</span>
+<div>
+<p class="font-label-md text-label-md font-bold text-error">LOW INVENTORY ALERT</p>
+<p class="font-body-md text-body-md">Standard surgical PPE kits below 15% threshold.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Wait Time Trends (Medium Width) -->
+<div class="col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-primary">Wait Time Trends (24h)</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+<div class="p-6 h-[240px] flex items-end gap-1">
+<!-- Simplified Bar Chart for visualization -->
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[30%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[25%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[20%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[15%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[40%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[55%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[70%] transition-all"></div>
+<div class="flex-1 bg-error/40 hover:bg-error/60 rounded-t h-[95%] transition-all"></div>
+<div class="flex-1 bg-error/40 hover:bg-error/60 rounded-t h-[85%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[60%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[45%] transition-all"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 rounded-t h-[35%] transition-all"></div>
+</div>
+<div class="px-6 pb-6 flex justify-between text-[10px] text-on-surface-variant font-bold">
+<span>00:00</span>
+<span>04:00</span>
+<span>08:00</span>
+<span>12:00</span>
+<span>16:00</span>
+<span>20:00</span>
+</div>
+</div>
+<!-- Recent Critical Admittances (Medium Width) -->
+<div class="col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-primary">Priority Admittances</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">VIEW ALL</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">PATIENT ID</th>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">TRIAGE</th>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">COMPLAINT</th>
+<th class="px-6 py-3 font-label-md text-label-md text-on-surface-variant">WAIT</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-3 font-code-md text-code-md">ED-2941</td>
+<td class="px-6 py-3">
+<span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-md text-label-md">RED (CRITICAL)</span>
+</td>
+<td class="px-6 py-3 font-body-md text-body-md">Chest Pain, SOB</td>
+<td class="px-6 py-3 font-body-md text-body-md">0m (Immediate)</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-3 font-code-md text-code-md">ED-2945</td>
+<td class="px-6 py-3">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md">ORANGE (URGENT)</span>
+</td>
+<td class="px-6 py-3 font-body-md text-body-md">Suspected Fracture</td>
+<td class="px-6 py-3 font-body-md text-body-md">12m</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-3 font-code-md text-code-md">ED-2948</td>
+<td class="px-6 py-3">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md">ORANGE (URGENT)</span>
+</td>
+<td class="px-6 py-3 font-body-md text-body-md">Laceration, Active Bleeding</td>
+<td class="px-6 py-3 font-body-md text-body-md">8m</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-3 font-code-md text-code-md">ED-2950</td>
+<td class="px-6 py-3">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-highest text-on-surface-variant font-label-md text-label-md">YELLOW (DELAYED)</span>
+</td>
+<td class="px-6 py-3 font-body-md text-body-md">High Fever (Pediatric)</td>
+<td class="px-6 py-3 font-body-md text-body-md">45m</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB (Suppressed based on logic for Dashboard) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

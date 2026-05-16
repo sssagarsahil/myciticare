@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#273143",
+            "primary-fixed": "#cde5ff",
+            "surface-tint": "#316289",
+            "error": "#ba1a1a",
+            "tertiary-container": "#3b5b78",
+            "tertiary": "#22435f",
+            "outline": "#72787f",
+            "on-primary-fixed": "#001d32",
+            "surface": "#f9f9ff",
+            "secondary-fixed-dim": "#a6c9f8",
+            "tertiary-fixed-dim": "#a9caeb",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#d2e4ff",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#001d32",
+            "on-tertiary-container": "#b2d2f4",
+            "primary": "#074469",
+            "background": "#f9f9ff",
+            "surface-container": "#e8eeff",
+            "surface-container-highest": "#d8e3fb",
+            "on-tertiary-fixed-variant": "#294965",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#ecf0ff",
+            "inverse-primary": "#9ccbf7",
+            "on-secondary-fixed": "#001c37",
+            "surface-variant": "#d8e3fb",
+            "on-secondary-fixed-variant": "#234970",
+            "on-primary-fixed-variant": "#124a6f",
+            "on-surface": "#111c2d",
+            "on-secondary-container": "#345881",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c1c7cf",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#d0daf2",
+            "secondary": "#3d608a",
+            "primary-fixed-dim": "#9ccbf7",
+            "on-primary-container": "#a5d4ff",
+            "surface-container-low": "#f0f3ff",
+            "on-surface-variant": "#41474e",
+            "surface-container-high": "#dfe8ff",
+            "surface-bright": "#f9f9ff",
+            "primary-container": "#2a5c82",
+            "on-background": "#111c2d",
+            "tertiary-fixed": "#cee5ff",
+            "secondary-container": "#abcffe",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "sidebar_width": "260px",
+            "unit": "8px",
+            "gutter": "24px",
+            "container_max_width": "1600px",
+            "margin_desktop": "40px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "title-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "code-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 w-full bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-gutter h-16 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a female clinician in her 30s wearing modern medical scrubs. The lighting is soft and clinical, set against a blurred hospital hallway background. The overall aesthetic is clean, professional, and trustworthy, with high-key lighting consistent with a healthcare mobile application's light mode theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5C3cE_T40U0EeEQD-UNgKl55WHDr0Ft58kkimwP-QjBtvzGW4hidKlZPwgjzEZDFZ2z9LE8u-_HAPMgx7xi5I88o6MrNyaJT5XNVQyKguK_3QJ7-0qam-uvuB7V9tx9B3zOIESSix6dnr_mpCownlAtaAMwn1TdN9JIM7avcforjkEQyVFcDiVc0PzO8AcpEOXaF1s4Yxh1WHv8IEdRG6o9pE9goxkpLQ7QLXDFh6x3-V6sI3KsRHfg6K4cmhwuNPQPtBVIOfdQ"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">CityCare</h1>
+</div>
+<div class="flex items-center">
+<button class="p-2 hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-24 px-4 max-w-lg mx-auto">
+<!-- Quick Status / Calendar Strip -->
+<section class="mb-8">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-title-lg text-title-lg text-on-surface">Weekly Schedule</h2>
+<span class="font-label-md text-label-md text-primary">October 2023</span>
+</div>
+<div class="flex justify-between gap-2 overflow-x-auto pb-2">
+<div class="flex flex-col items-center min-w-[48px] py-3 rounded-xl bg-surface-container-highest text-on-surface">
+<span class="font-label-md text-label-md">Mon</span>
+<span class="font-title-lg text-title-lg">23</span>
+</div>
+<div class="flex flex-col items-center min-w-[48px] py-3 rounded-xl bg-primary text-on-primary">
+<span class="font-label-md text-label-md">Tue</span>
+<span class="font-title-lg text-title-lg">24</span>
+<div class="w-1.5 h-1.5 rounded-full bg-on-primary mt-1"></div>
+</div>
+<div class="flex flex-col items-center min-w-[48px] py-3 rounded-xl bg-surface-container-low text-on-surface-variant">
+<span class="font-label-md text-label-md">Wed</span>
+<span class="font-title-lg text-title-lg">25</span>
+</div>
+<div class="flex flex-col items-center min-w-[48px] py-3 rounded-xl bg-surface-container-low text-on-surface-variant">
+<span class="font-label-md text-label-md">Thu</span>
+<span class="font-title-lg text-title-lg">26</span>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-container mt-1"></div>
+</div>
+<div class="flex flex-col items-center min-w-[48px] py-3 rounded-xl bg-surface-container-low text-on-surface-variant">
+<span class="font-label-md text-label-md">Fri</span>
+<span class="font-title-lg text-title-lg">27</span>
+</div>
+<div class="flex flex-col items-center min-w-[48px] py-3 rounded-xl bg-surface-container-low text-on-surface-variant">
+<span class="font-label-md text-label-md">Sat</span>
+<span class="font-title-lg text-title-lg">28</span>
+</div>
+</div>
+</section>
+<!-- My Shifts Section -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">My Shifts</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-md text-label-md">2 Active</span>
+</div>
+<div class="space-y-4">
+<!-- Shift Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[18px] text-primary">emergency</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Emergency Room (ER)</span>
+</div>
+<p class="font-title-lg text-title-lg text-on-surface">Tue, Oct 24 • 07:00 - 19:00</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md">Registered Nurse</span>
+</div>
+<div class="flex gap-3 mt-2">
+<button class="flex-1 py-2 px-4 border border-primary text-primary font-label-md text-label-md rounded hover:bg-surface-container-low transition-colors duration-200">
+              Request Swap
+            </button>
+<button class="flex-1 py-2 px-4 border border-outline text-on-surface-variant font-label-md text-label-md rounded hover:bg-surface-container-low transition-colors duration-200">
+              Details
+            </button>
+</div>
+</div>
+<!-- Shift Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[18px] text-primary">medical_services</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Intensive Care (ICU)</span>
+</div>
+<p class="font-title-lg text-title-lg text-on-surface">Thu, Oct 26 • 19:00 - 07:00</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md">Night Shift</span>
+</div>
+<div class="flex gap-3 mt-2">
+<button class="flex-1 py-2 px-4 border border-primary text-primary font-label-md text-label-md rounded hover:bg-surface-container-low transition-colors duration-200">
+              Request Swap
+            </button>
+<button class="flex-1 py-2 px-4 border border-outline text-on-surface-variant font-label-md text-label-md rounded hover:bg-surface-container-low transition-colors duration-200">
+              Details
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Marketplace Section -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Available Shifts</h2>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1">
+          Filter <span class="material-symbols-outlined text-[16px]">filter_list</span>
+</button>
+</div>
+<div class="space-y-4">
+<!-- Marketplace Card 1 -->
+<div class="relative overflow-hidden bg-surface-container-lowest border border-outline-variant rounded-xl">
+<div class="absolute top-0 right-0 p-2">
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded font-label-md text-label-md">Urgent</span>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px] text-primary">healing</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Pediatrics</span>
+</div>
+<div class="mb-4">
+<p class="font-title-lg text-title-lg text-on-surface">Wed, Oct 25</p>
+<p class="font-body-md text-body-md text-on-surface-variant">08:00 - 16:00 (8h)</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+<span class="font-label-md text-label-md text-primary">Extra $50 Bonus</span>
+</div>
+<button class="bg-primary text-on-primary py-2 px-6 rounded font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm active:scale-95 transition-transform">
+                Pick Up
+              </button>
+</div>
+</div>
+</div>
+<!-- Marketplace Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px] text-primary">ecg</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Cardiology</span>
+</div>
+<div class="mb-4">
+<p class="font-title-lg text-title-lg text-on-surface">Fri, Oct 27</p>
+<p class="font-body-md text-body-md text-on-surface-variant">19:00 - 07:00 (12h)</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">person</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Posted by Sarah J.</span>
+</div>
+<button class="bg-primary text-on-primary py-2 px-6 rounded font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm active:scale-95 transition-transform">
+              Pick Up
+            </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline z-50">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-5 py-1 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container px-5 py-1 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container px-5 py-1 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+</nav>
+</body></html>

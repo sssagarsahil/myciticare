@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-medical-gradient {
+            background: linear-gradient(135deg, #f9f9ff 0%, #e7eeff 100%);
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to right, black 50%, transparent 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f0f3ff",
+                        "surface-variant": "#d8e3fb",
+                        "primary-container": "#2a5c82",
+                        "on-tertiary-fixed": "#281800",
+                        "inverse-surface": "#263143",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#78dc77",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "on-tertiary-container": "#fac67a",
+                        "tertiary-container": "#76510e",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#9ccbf7",
+                        "outline": "#72787f",
+                        "background": "#f9f9ff",
+                        "on-primary-container": "#a5d4ff",
+                        "tertiary-fixed-dim": "#f1be72",
+                        "surface-dim": "#cfdaf2",
+                        "surface-tint": "#316289",
+                        "on-tertiary-fixed-variant": "#614000",
+                        "outline-variant": "#c1c7cf",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed": "#ffddb0",
+                        "surface-container": "#e7eeff",
+                        "on-secondary-fixed-variant": "#005313",
+                        "primary-fixed": "#cde5ff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006e1c",
+                        "on-surface": "#111c2d",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#91f78e",
+                        "on-surface-variant": "#41474e",
+                        "on-background": "#111c2d",
+                        "secondary-fixed": "#94f990",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#002204",
+                        "on-secondary-container": "#00731e",
+                        "on-primary-fixed": "#001d32",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-container-high": "#dee8ff",
+                        "primary": "#074469",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#d8e3fb",
+                        "tertiary": "#5a3b00",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "80px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-surface dark:bg-background shadow-sm fixed top-0 w-full z-50 transition-all duration-300">
+<nav class="flex items-center justify-between px-margin-mobile md:px-margin-desktop w-full max-w-[1280px] mx-auto h-20">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">CityCare</span>
+</div>
+<div class="hidden md:flex items-center gap-xl">
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-all" href="#">Hospitals</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-md text-label-md" href="#">Services</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-md text-label-md" href="#">Patient Portal</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 font-label-md text-label-md" href="#">About Us</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:bg-primary-container hover:shadow-lg transition-all active:scale-95">
+                Find a Hospital
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden bg-medical-gradient">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-xl items-center relative z-10">
+<div class="space-y-md text-center md:text-left">
+<span class="inline-block px-4 py-1.5 bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm rounded-full mb-base">COMMUNITY FIRST HEALTHCARE</span>
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">
+                        Healthcare, Simplified for the City
+                    </h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-lg mx-auto md:mx-0">
+                        Access world-class medical facilities, book specialists instantly, and manage your health records through a single city-integrated platform.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md justify-center md:justify-start pt-md">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-headline-md flex items-center justify-center gap-base shadow-md hover:shadow-xl transition-all">
+                            Find Care Near Me
+                            <span class="material-symbols-outlined">near_me</span>
+</button>
+<button class="bg-surface-container-lowest border border-outline-variant text-primary px-8 py-4 rounded-lg font-headline-md flex items-center justify-center gap-base hover:bg-surface-container transition-all">
+                            Access Patient Portal
+                        </button>
+</div>
+</div>
+<div class="hidden md:block relative h-full">
+<div class="absolute inset-0 bg-primary-container/5 rounded-3xl -rotate-2 scale-105"></div>
+<img class="rounded-3xl shadow-2xl object-cover h-[600px] w-full relative z-10" data-alt="A professional and modern clinical setting featuring a female doctor in a white lab coat talking compassionately with an elderly patient. The room is filled with soft, natural sunlight streaming through large windows, highlighting clean white walls and minimal medical equipment. The atmosphere is calm, trustworthy, and evokes a high-end healthcare experience with a gentle blue and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwtBRvCiQ7X0YW2pGik9kg-xYT1dFIWW_SyXpgACBohEcwMggCc9D8RfrNDzwD5TAOlitSO6x-rK-zleiPQf3j1H-e7EPMFfjW4KJR83Fk99j0WFwWj5IStvawbLQ_Mtwc29u-aMfWaSXbJa3dZjiaGxCDO2Tj0dYT4-kiJSCzJhMfx-WgHTDSE9GCO-Yd1vjsBFy9zTVakpe3xLvChMOESojj8cGaSb-bj8vZxp91XNkJHhpsKjhl8xvrmuW3ByG3JK80yDROTA"/>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute bottom-0 right-0 w-1/3 h-1/2 bg-primary/5 blur-[120px] rounded-full -mb-32 -mr-32"></div>
+</section>
+<!-- Social Proof Section -->
+<section class="py-lg bg-surface-container-lowest">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-wrap items-center justify-center gap-xl md:gap-32 text-center">
+<div class="group">
+<div class="text-primary font-display-lg text-display-lg block mb-xs group-hover:scale-110 transition-transform">20+</div>
+<div class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">City Hospitals</div>
+</div>
+<div class="h-12 w-px bg-outline-variant hidden md:block"></div>
+<div class="group">
+<div class="text-primary font-display-lg text-display-lg block mb-xs group-hover:scale-110 transition-transform">500k+</div>
+<div class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">Patients Served</div>
+</div>
+<div class="h-12 w-px bg-outline-variant hidden md:block"></div>
+<div class="group">
+<div class="text-primary font-display-lg text-display-lg block mb-xs group-hover:scale-110 transition-transform">1500+</div>
+<div class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">Top Specialists</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Services Section -->
+<section class="py-xl">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-base">Our Core Offerings</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Providing a unified digital infrastructure for the city's health needs.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<!-- Service Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_20px_rgba(30,41,59,0.05)] border border-transparent hover:border-primary/20 hover:shadow-md transition-all group">
+<div class="w-16 h-16 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center mb-md group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-base">Integrated Directory</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Find any city hospital, clinic, or specialist in one place with real-time location mapping.</p>
+<a class="text-primary font-label-md flex items-center gap-xs hover:gap-base transition-all" href="#">Explore Directory <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_20px_rgba(30,41,59,0.05)] border border-transparent hover:border-primary/20 hover:shadow-md transition-all group">
+<div class="w-16 h-16 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center mb-md group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined text-3xl">event_available</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-base">Seamless Scheduling</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Book appointments instantly with real-time availability sync across all city healthcare providers.</p>
+<a class="text-primary font-label-md flex items-center gap-xs hover:gap-base transition-all" href="#">Book Now <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_20px_rgba(30,41,59,0.05)] border border-transparent hover:border-primary/20 hover:shadow-md transition-all group">
+<div class="w-16 h-16 bg-primary-fixed text-on-primary-fixed-variant rounded-lg flex items-center justify-center mb-md group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined text-3xl">videocam</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-base">Virtual Care</h3>
+<p class="text-on-surface-variant font-body-md mb-md">High-quality telehealth consultations with certified city practitioners from the comfort of your home.</p>
+<a class="text-primary font-label-md flex items-center gap-xs hover:gap-base transition-all" href="#">Start Virtual Visit <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="flex gap-md items-start p-md bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0">timer</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs uppercase tracking-tight">ER Wait Times</h4>
+<p class="text-on-surface-variant font-body-md">Live updates on emergency room occupancy across the metropolitan area.</p>
+</div>
+</div>
+<div class="flex gap-md items-start p-md bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-secondary text-3xl shrink-0">verified_user</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs uppercase tracking-tight">Secure Records</h4>
+<p class="text-on-surface-variant font-body-md">Your health data is protected by hospital-grade encryption and privacy protocols.</p>
+</div>
+</div>
+<div class="flex gap-md items-start p-md bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0">person_search</span>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs uppercase tracking-tight">Specialist Search</h4>
+<p class="text-on-surface-variant font-body-md">Advanced filtering for medical board certified specialists in your local neighborhood.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mobile App Promotion -->
+<section class="py-xl overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="bg-primary rounded-[32px] p-margin-mobile md:p-xl flex flex-col md:flex-row items-center gap-xl relative">
+<div class="flex-1 space-y-md text-on-primary">
+<h2 class="font-headline-lg text-headline-lg text-white">Your Health in Your Pocket</h2>
+<p class="text-primary-fixed font-body-lg text-body-lg">
+                            Experience the full power of CityCare with our mobile app. Access live hospital maps, instant notifications for test results, and simplified billing.
+                        </p>
+<div class="flex flex-wrap gap-md pt-base">
+<button class="bg-white text-primary px-6 py-3 rounded-lg flex items-center gap-sm font-label-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">File</span>
+                                App Store
+                            </button>
+<button class="bg-white text-primary px-6 py-3 rounded-lg flex items-center gap-sm font-label-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">play_arrow</span>
+                                Google Play
+                            </button>
+</div>
+</div>
+<div class="flex-1 relative">
+<div class="absolute inset-0 bg-white/10 blur-[100px] rounded-full scale-125"></div>
+<img alt="CityCare Mobile App UI" class="max-w-[300px] md:max-w-[380px] mx-auto rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative z-10 border-8 border-black/10" src="https://lh3.googleusercontent.com/aida/ADBb0ugH9SybXyU8gdeibdxuSmeETexhmyndGlsk4381WtMHD1EAlcIqsS_7vtN-cYsblF2iymZac3h6eyclduZmfcMmsCKVuORtxuz9ZF5LfIYgKWHHJv3mN2mypx_iUPFgzmY1H1MxFvxTBVQUCbOKb3Lbjk-tuto4cUY2bLr6FmIG-_ffd4Gmz7SOay13QYB8auO6gUPyB5JCacN_d_gXXftw2ueiOwSpqNQjF8IMABr-UiNeiUlt1ufhvg"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-xl max-w-[1280px] mx-auto">
+<div class="space-y-md">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface">CityCare</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md">
+                    © 2024 CityCare Medical Infrastructure. Providing clinical excellence and compassionate care across the city.
+                </p>
+</div>
+<div class="space-y-sm">
+<h5 class="font-label-md text-label-md font-bold text-primary dark:text-inverse-primary uppercase tracking-widest">Platform</h5>
+<ul class="space-y-xs">
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-label-sm text-label-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-label-sm text-label-sm" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-label-sm text-label-sm" href="#">Accessibility</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h5 class="font-label-md text-label-md font-bold text-primary dark:text-inverse-primary uppercase tracking-widest">Company</h5>
+<ul class="space-y-xs">
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-label-sm text-label-sm" href="#">Contact Us</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-label-sm text-label-sm" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h5 class="font-label-md text-label-md font-bold text-primary dark:text-inverse-primary uppercase tracking-widest">Stay Updated</h5>
+<p class="text-on-surface-variant font-body-md text-body-md mb-base">Subscribe to our newsletter for health tips and city news.</p>
+<div class="flex gap-xs">
+<input class="bg-surface-container p-2 rounded-lg border border-outline-variant w-full focus:ring-2 focus:ring-primary outline-none" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg hover:shadow-md transition-all">Join</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hospital Admin Portal - Staff &amp; Departments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#3b5b78",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2a5c82",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed": "#001d32",
+                        "surface-container": "#e8eeff",
+                        "surface-container-high": "#dfe8ff",
+                        "on-surface-variant": "#41474e",
+                        "primary-fixed": "#cde5ff",
+                        "outline-variant": "#c1c7cf",
+                        "secondary-fixed": "#d2e4ff",
+                        "on-surface": "#111c2d",
+                        "on-primary-container": "#a5d4ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d8e3fb",
+                        "inverse-on-surface": "#ecf0ff",
+                        "secondary": "#3d608a",
+                        "on-secondary-fixed-variant": "#234970",
+                        "secondary-fixed-dim": "#a6c9f8",
+                        "surface-bright": "#f9f9ff",
+                        "outline": "#72787f",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#273143",
+                        "on-primary-fixed": "#001d32",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "on-tertiary-container": "#b2d2f4",
+                        "surface-dim": "#d0daf2",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#316289",
+                        "secondary-container": "#abcffe",
+                        "primary": "#074469",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f0f3ff",
+                        "on-secondary-container": "#345881",
+                        "tertiary-fixed-dim": "#a9caeb",
+                        "tertiary": "#22435f",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "inverse-primary": "#9ccbf7",
+                        "on-background": "#111c2d",
+                        "tertiary-fixed": "#cee5ff",
+                        "on-secondary-fixed": "#001c37",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#294965",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin_desktop": "40px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container_max_width": "1600px",
+                        "sidebar_width": "260px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-gray-50 group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Shared TopAppBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-outline-variant bg-surface px-margin_desktop py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em]">Hospital Admin Portal</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded h-full bg-surface-container-low border border-outline-variant">
+<div class="text-on-surface-variant flex items-center justify-center pl-4 rounded-l border-r-0" data-icon="search" data-size="20px">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-on-surface focus:outline-0 focus:ring-2 focus:ring-primary border-none bg-transparent h-full placeholder:text-on-surface-variant px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal" placeholder="Search resources..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-0.5" href="#">Staff</a>
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Departments</a>
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Audit Logs</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded h-10 w-10 bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded h-10 w-10 bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-outline-variant" data-alt="A professional headshot of a hospital administrator, a middle-aged woman with glasses and a friendly expression, set against a blurred modern medical office background. The lighting is bright and clean, following a professional corporate aesthetic with soft shadows and natural tones. The overall look is crisp, high-resolution, and clinical yet welcoming." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVv9SOQ_rGCJcdLS5W3vwPA7kYT-hey-NzJpqClNGqcBgiDl8HjxSHl2oEEGqryPqZOSezHy9Ld0ojcXrnnHZCtGf7fJiHi-B9HXHzg78_8VEfbNIj1111qIxHE8CsMFvKPv3M5Yw_jnqf9Mz8mQfd6Im8bmmk0YA66ukFCsta2dxcfO_PpLejk4hcnQQWgfHaNX28ZPFf_H03Fvg7XHnWYxMfA-zA8YyKVj-6mIZioar83Itds1-7zOWzya3FghZ8G_H2MrJ67Q");'></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Shared Sidebar Navigation -->
+<aside class="w-[sidebar_width] flex flex-col border-r border-outline-variant bg-surface py-6 px-4 gap-6 shrink-0">
+<div class="flex flex-col gap-1">
+<h1 class="text-on-surface text-base font-semibold leading-normal">Admin Console</h1>
+<p class="text-on-surface-variant text-xs font-normal">General Hospital South Wing</p>
+</div>
+<nav class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<p class="text-on-surface text-sm font-medium">Overview</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded bg-primary-container text-on-primary cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<p class="text-sm font-medium">Staff Management</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">lan</span>
+<p class="text-on-surface text-sm font-medium">Departments</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+<p class="text-on-surface text-sm font-medium">System Logs</p>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant">
+<p class="text-[10px] uppercase tracking-widest font-bold text-outline px-3 mb-2">Controls</p>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">security</span>
+<p class="text-on-surface text-sm font-medium">RBAC Policies</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">database</span>
+<p class="text-on-surface text-sm font-medium">Backups</p>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-background p-margin_desktop">
+<div class="max-w-[container_max_width] mx-auto flex flex-col gap-gutter">
+<!-- Page Header -->
+<div class="flex items-end justify-between border-b border-outline-variant pb-6">
+<div class="flex flex-col gap-2">
+<h2 class="text-headline-lg text-on-surface">Staff Directory</h2>
+<p class="text-body-lg text-on-surface-variant">Centralized control for 1,284 healthcare professionals and administrative personnel.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 h-12 bg-primary text-on-primary rounded-lg font-semibold hover:bg-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-xl">person_add</span>
+<span>Add New Staff</span>
+</button>
+</div>
+</div>
+<!-- Department Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface border border-outline-variant rounded-xl p-6 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-label-md text-on-surface-variant uppercase">Emergency Dept</span>
+<span class="material-symbols-outlined text-primary">emergency</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-md text-on-surface">92%</span>
+<span class="text-label-md text-green-600 font-bold">Allocated</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+<p class="text-xs text-on-surface-variant italic">Critical capacity alert</p>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-6 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-label-md text-on-surface-variant uppercase">Radiology</span>
+<span class="material-symbols-outlined text-primary">biotech</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-md text-on-surface">74%</span>
+<span class="text-label-md text-secondary font-bold">Stable</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[74%]"></div>
+</div>
+<p class="text-xs text-on-surface-variant italic">Normal operational flow</p>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-6 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-label-md text-on-surface-variant uppercase">Surgery</span>
+<span class="material-symbols-outlined text-primary">Cursor</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-md text-on-surface">88%</span>
+<span class="text-label-md text-on-secondary-container font-bold">Optimal</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[88%]"></div>
+</div>
+<p class="text-xs text-on-surface-variant italic">4 active theaters</p>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-6 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-label-md text-on-surface-variant uppercase">Admin Logs</span>
+<span class="material-symbols-outlined text-primary">assignment_turned_in</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-md text-on-surface">14</span>
+<span class="text-label-md text-on-surface-variant">Alerts</span>
+</div>
+<div class="flex gap-1">
+<div class="h-4 w-1.5 bg-error rounded-full"></div>
+<div class="h-4 w-1.5 bg-error rounded-full"></div>
+<div class="h-4 w-1.5 bg-surface-container-highest rounded-full"></div>
+<div class="h-4 w-1.5 bg-surface-container-highest rounded-full"></div>
+<div class="h-4 w-1.5 bg-surface-container-highest rounded-full"></div>
+</div>
+<p class="text-xs text-on-surface-variant italic">2 critical permission changes</p>
+</div>
+</div>
+<!-- Data Table Section -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<div class="flex gap-4">
+<button class="text-sm font-bold border-b-2 border-primary text-primary pb-1">All Staff</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-on-surface pb-1">Medical Officers</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-on-surface pb-1">Nursing</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-on-surface pb-1">Administrative</button>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs font-semibold px-3 py-1.5 border border-outline-variant rounded hover:bg-surface-container-high transition-colors">
+                                        Filter
+                                    </button>
+<button class="text-xs font-semibold px-3 py-1.5 border border-outline-variant rounded hover:bg-surface-container-high transition-colors">
+                                        Export CSV
+                                    </button>
+</div>
+</div>
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low text-on-surface-variant uppercase text-[11px] font-bold tracking-wider">
+<tr>
+<th class="px-6 py-3 border-b border-outline-variant">Personnel</th>
+<th class="px-6 py-3 border-b border-outline-variant">ID &amp; Department</th>
+<th class="px-6 py-3 border-b border-outline-variant">RBAC Level</th>
+<th class="px-6 py-3 border-b border-outline-variant">Access Status</th>
+<th class="px-6 py-3 border-b border-outline-variant">Last Audit</th>
+<th class="px-6 py-3 border-b border-outline-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant text-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-xs">JS</div>
+<div>
+<p class="font-bold text-on-surface">Dr. Julianne Smith</p>
+<p class="text-xs text-on-surface-variant italic">Senior Surgeon</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">
+<p>#SURG-8821</p>
+<p class="text-[11px]">Surgery Unit 4</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-primary-container text-on-primary-container">LEVEL 4 - FULL</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="size-2 rounded-full bg-green-500"></div>
+<span class="text-xs font-medium">Verified Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">
+                                            2023-11-04 14:22<br/>by Admin_02
+                                        </td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs">MT</div>
+<div>
+<p class="font-bold text-on-surface">Mark Thompson</p>
+<p class="text-xs text-on-surface-variant italic">Data Registrar</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">
+<p>#ADM-9012</p>
+<p class="text-[11px]">Medical Records</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-container text-on-secondary-container">LEVEL 2 - READ ONLY</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<div class="size-2 rounded-full bg-green-500"></div>
+<span class="text-xs font-medium">Verified Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">
+                                            2023-11-04 09:10<br/>System_Cron
+                                        </td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold text-xs">AL</div>
+<div>
+<p class="font-bold text-on-surface">Amanda Lee</p>
+<p class="text-xs text-on-surface-variant italic">Head Nurse</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">
+<p>#ER-0455</p>
+<p class="text-[11px]">Emergency Care</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-surface-container-highest text-on-surface">LEVEL 3 - RESTRICTED</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-error">
+<div class="size-2 rounded-full bg-error"></div>
+<span class="text-xs font-medium">Suspended</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">
+                                            2023-11-03 18:45<br/>by Admin_Security
+                                        </td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Showing 1-10 of 1,284 staff members</span>
+<div class="flex gap-1">
+<button class="px-3 py-1 border border-outline-variant rounded bg-surface hover:bg-surface-container-high text-xs">Prev</button>
+<button class="px-3 py-1 border border-primary rounded bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="px-3 py-1 border border-outline-variant rounded bg-surface hover:bg-surface-container-high text-xs">2</button>
+<button class="px-3 py-1 border border-outline-variant rounded bg-surface hover:bg-surface-container-high text-xs">3</button>
+<button class="px-3 py-1 border border-outline-variant rounded bg-surface hover:bg-surface-container-high text-xs">Next</button>
+</div>
+</div>
+</div>
+<!-- System Audit Logs Section -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant bg-surface-container-low flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-wide text-on-surface">Recent Audit Logs</h3>
+<a class="text-xs text-primary font-semibold hover:underline" href="#">View All Logs</a>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="px-6 py-4 flex items-center justify-between hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-8 rounded bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">security_update_warning</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Permission Escalation Detected</p>
+<p class="text-xs text-on-surface-variant">User #ADM-9012 attempted to modify Level 4 records.</p>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">14 mins ago</span>
+</div>
+<div class="px-6 py-4 flex items-center justify-between hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-8 rounded bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">login</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">System Backup Successful</p>
+<p class="text-xs text-on-surface-variant">Weekly redundant backup of HR database completed.</p>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">2 hours ago</span>
+</div>
+<div class="px-6 py-4 flex items-center justify-between hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-4">
+<div class="size-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">manage_accounts</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">New Staff Registered</p>
+<p class="text-xs text-on-surface-variant">Dr. Sarah Connor added to Oncology Dept.</p>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">4 hours ago</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+<!-- Hidden Template for 'Add New Staff' Modal Logic (CSS Trigger Simulation) -->
+<div class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-6" id="add-staff-modal">
+<div class="bg-surface w-full max-w-md rounded-xl border border-outline shadow-2xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-title-lg text-on-surface">Add New Personnel</h3>
+<button class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md text-on-surface-variant">Full Name</label>
+<input class="form-input border border-outline-variant rounded-lg px-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Enter full name" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md text-on-surface-variant">Email Address</label>
+<input class="form-input border border-outline-variant rounded-lg px-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="name@hospital.org" type="email"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md text-on-surface-variant">Department</label>
+<select class="form-select border border-outline-variant rounded-lg px-4 py-2 text-sm focus:ring-primary focus:border-primary">
+<option>Surgery</option>
+<option>Radiology</option>
+<option>Emergency</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md text-on-surface-variant">Role Level</label>
+<select class="form-select border border-outline-variant rounded-lg px-4 py-2 text-sm focus:ring-primary focus:border-primary">
+<option>Level 1</option>
+<option>Level 2</option>
+<option>Level 3</option>
+</select>
+</div>
+</div>
+<div class="mt-4 flex gap-3">
+<button class="flex-1 px-4 py-2 border border-outline-variant rounded-lg text-sm font-semibold hover:bg-surface-container-low" type="button">Cancel</button>
+<button class="flex-1 px-4 py-2 bg-primary text-on-primary rounded-lg text-sm font-semibold hover:bg-primary-fixed-dim" type="submit">Create Profile</button>
+</div>
+</form>
+</div>
+</div>
+</body></html>

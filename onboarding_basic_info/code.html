@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CityCare - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#fac67a",
+                    "on-surface": "#111c2d",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary-fixed-dim": "#f1be72",
+                    "tertiary-fixed": "#ffddb0",
+                    "primary": "#074469",
+                    "surface-container-high": "#dee8ff",
+                    "secondary-fixed": "#94f990",
+                    "primary-fixed": "#cde5ff",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "outline": "#72787f",
+                    "inverse-primary": "#9ccbf7",
+                    "primary-fixed-dim": "#9ccbf7",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#316289",
+                    "tertiary": "#5a3b00",
+                    "secondary-container": "#91f78e",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "surface": "#f9f9ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#006e1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#a5d4ff",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-primary-fixed": "#001d32",
+                    "background": "#f9f9ff",
+                    "primary-container": "#2a5c82",
+                    "on-secondary-fixed-variant": "#005313",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary-fixed": "#281800",
+                    "outline-variant": "#c1c7cf",
+                    "on-secondary-container": "#00731e",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#76510e",
+                    "on-secondary-fixed": "#002204",
+                    "on-background": "#111c2d",
+                    "inverse-surface": "#263143",
+                    "surface-variant": "#d8e3fb",
+                    "on-surface-variant": "#41474e",
+                    "surface-dim": "#cfdaf2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "md": "24px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "margin-desktop": "80px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "lg": "48px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full z-50 shadow-sm dark:shadow-none bg-surface dark:bg-on-background sticky top-0">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="medical_services">medical_services</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">CityCare</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A clean, professional placeholder for a user profile avatar. The design is minimalist, using a soft grey silhouette against a neutral, high-key white background. The lighting is even and sterile, reflecting the clinical and modern medical brand identity of CityCare." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTEE1v54Of7UH7r0BpHKK-WP5u2eHXBm0yCIBfbd91KNCqEwNiUsP1XKLERx1EPlUI8ZgkqLweQNimy4m79Hm-60n9NxWQL9ptTbfOSgAIqGygrjkgkGbLPM3ygi10WWYOkd_iNfQrgq0tlD37n2w1YfoXnOVLZwKQJAOdooJb7wmXyr7_PNA4hCrj9oMuAvxFZfT0lg99-jhaQ1qQe8u_op5C9XgOK2lRHRawG2W-fKXwt1Jb_UOQ8nB4e-djv5i5Kmjc8uLiLw"/>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center py-xl px-margin-mobile">
+<div class="w-full max-w-[600px] flex flex-col gap-lg">
+<!-- Progress Indicator -->
+<div class="w-full">
+<div class="flex justify-between items-end mb-sm">
+<div>
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider">Step 1 of 4</span>
+<h2 class="text-headline-md font-headline-md text-on-surface block">Basic Information</h2>
+</div>
+<span class="text-label-md font-label-md text-outline">25% Complete</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/4 rounded-full transition-all duration-500"></div>
+</div>
+</div>
+<!-- Onboarding Form Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(30,41,59,0.05)] p-md md:p-xl flex flex-col gap-lg">
+<div class="flex flex-col gap-base">
+<p class="text-body-md font-body-md text-on-surface-variant">Please provide your legal details to help us set up your digital health record securely.</p>
+</div>
+<form class="flex flex-col gap-md">
+<!-- Full Name -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant" for="full_name">Full Name</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="person">person</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="full_name" placeholder="e.g. Dr. Jane Smith" type="text"/>
+</div>
+</div>
+<!-- Date of Birth -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant" for="dob">Date of Birth</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="calendar_today">calendar_today</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="dob" type="date"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant" for="phone">Phone Number</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="call">call</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none text-body-md" id="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<span class="text-label-sm font-label-sm text-outline-variant">We'll send a verification code to this number.</span>
+</div>
+<!-- CTA Section -->
+<div class="mt-base flex flex-col gap-md">
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-label-md text-label-md shadow-sm hover:opacity-90 active:scale-95 transition-all flex justify-center items-center gap-base" type="submit">
+                            Continue
+                            <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full text-primary border border-primary py-4 rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-all" type="button">
+                            Save and Exit
+                        </button>
+</div>
+</form>
+</section>
+<!-- Decorative Visual Support (Asymmetric Layout Hint) -->
+<div class="hidden lg:block fixed right-margin-desktop top-1/2 -translate-y-1/2 w-80 pointer-events-none opacity-40">
+<div class="relative">
+<div class="absolute -z-10 w-64 h-64 bg-primary-fixed rounded-full blur-3xl opacity-30"></div>
+<img alt="Medical Trust" class="rounded-xl shadow-lg border-4 border-surface" data-alt="A macro photograph of a high-tech medical verification device, emphasizing clean metallic surfaces and soft blue indicator lights. The image is bright and airy, with a shallow depth of field focusing on the precision of the hardware. The aesthetic is ultra-modern corporate healthcare, conveying a sense of security and technological advancement consistent with CityCare's branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOzMC0N_i5ue_IK1K0RHEo1EfyGaYgvfzQX5YDlZCJs1rDD-0hbJcbmXwiPFhwUvcZI1CTYGOkWGjf5zBrIl4otX55O6mQ8zZn0dM25bp118lh6dL4SAMDSiG7WfIfNGjunMuf6-ck13WKUR-MoeR_C2lWYvC1IveWPYq6KzLZlpb9tXrO9FOUl8VNXzHwug2OHD-hOoWkwidUj4T_cYCGQS9wug7EDvk5NmbbnjgJLx6WhwmChO8La-Rzkedhs4XaTE-Z0acP2Q"/>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Footer (Help Only) -->
+<footer class="py-md text-center">
+<p class="text-label-sm font-label-sm text-outline-variant">Need help? <a class="text-primary font-bold hover:underline" href="#">Contact Support</a></p>
+</footer>
+</body></html>

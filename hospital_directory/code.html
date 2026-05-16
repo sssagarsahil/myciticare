@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#5a3b00",
+                    "tertiary-container": "#76510e",
+                    "on-primary-fixed": "#001d32",
+                    "surface": "#f9f9ff",
+                    "outline": "#72787f",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#316289",
+                    "inverse-surface": "#263143",
+                    "primary-fixed": "#cde5ff",
+                    "surface-container-highest": "#d8e3fb",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "background": "#f9f9ff",
+                    "surface-container": "#e7eeff",
+                    "on-secondary-fixed": "#002204",
+                    "inverse-on-surface": "#ecf1ff",
+                    "inverse-primary": "#9ccbf7",
+                    "tertiary-fixed-dim": "#f1be72",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-tertiary-fixed": "#281800",
+                    "on-tertiary-container": "#fac67a",
+                    "primary": "#074469",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#94f990",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c1c7cf",
+                    "on-secondary-fixed-variant": "#005313",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "surface-variant": "#d8e3fb",
+                    "on-secondary-container": "#00731e",
+                    "on-surface": "#111c2d",
+                    "on-surface-variant": "#41474e",
+                    "primary-container": "#2a5c82",
+                    "surface-container-high": "#dee8ff",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#111c2d",
+                    "surface-container-low": "#f0f3ff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffddb0",
+                    "secondary-container": "#91f78e",
+                    "surface-dim": "#cfdaf2",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#006e1c",
+                    "on-primary-container": "#a5d4ff",
+                    "primary-fixed-dim": "#9ccbf7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin-desktop": "80px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "xl": "64px",
+                    "lg": "48px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9ff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md text-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-primary-fixed fixed top-0 left-0 w-full z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="local_hospital">local_hospital</span>
+<h1 class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">CityCare</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="hover:bg-surface-container dark:hover:bg-on-primary-fixed-variant transition-colors p-base rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-24 md:pb-8 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Search & Filter Section -->
+<section class="mb-lg">
+<div class="relative w-full mb-md">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm" placeholder="Search hospitals, clinics..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-md">
+<div class="flex flex-wrap gap-base">
+<button class="flex items-center gap-xs px-4 py-2 rounded-full border border-primary text-primary font-label-md text-label-md bg-primary-container/10 hover:bg-primary-container/20 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+                        Open Now
+                    </button>
+<button class="flex items-center gap-xs px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="emergency_hospital">CurrencyDollar</span>
+                        Emergency
+                    </button>
+<button class="flex items-center gap-xs px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="stethoscope">stethoscope</span>
+                        Specialty
+                    </button>
+</div>
+<button class="flex items-center gap-xs px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="map">map</span>
+                    Map View
+                </button>
+</div>
+</section>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Hospital Cards List -->
+<div class="lg:col-span-7 space-y-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_rgba(30,41,59,0.05)] border border-transparent hover:border-primary-container transition-all flex flex-col md:flex-row gap-md">
+<div class="w-full md:w-40 h-40 rounded-lg overflow-hidden shrink-0">
+<img alt="Central City Hospital" class="w-full h-full object-cover" data-alt="A clean, modern exterior of a multi-story city hospital featuring architectural glass and steel elements. The scene is set during a bright, sunny day with soft natural lighting and a high-key aesthetic. The landscaping is minimalist with manicured lawns, and the overall mood is clinical, efficient, and professional, perfectly aligning with a modern healthcare brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlcWgxhyL9BLgbCwcUMDp_Q8AvtIZ9pKA5rvLkFf8MxFzdM2RqLZzHZaQSTy7b9d2yqAwio7GisktjydCaYRYv3gxGBC2A7nfqg9L8OtC6UI38XTVF0e7JCigmZLI5YslE7FQBweHbl_8jKnhnAbToWozp6N0DbhVVjUsGoiBdadVmR59ri0hYeoFybuYWO4rQCO6bJx-5CuolVFPeUzKZBqNAJz5NH3PK8HamDr86L0iRzUwYdVQrfCeGV_-1PpfQtp7YjmIXJA"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">Central City Hospital</h2>
+<div class="flex items-center gap-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.8
+                                </div>
+</div>
+<p class="text-on-surface-variant font-label-md text-label-md mb-base flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                                2.4 miles away • 1200 Healthcare Way
+                            </p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">Cardiology</span>
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">24/7 ER</span>
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">Pediatrics</span>
+</div>
+</div>
+<div class="flex gap-base">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex-1">Book Appointment</button>
+<button class="border border-primary text-primary px-4 py-2 rounded-lg font-label-md text-label-md flex-1">View Details</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_rgba(30,41,59,0.05)] border border-transparent hover:border-primary-container transition-all flex flex-col md:flex-row gap-md">
+<div class="w-full md:w-40 h-40 rounded-lg overflow-hidden shrink-0">
+<img alt="Westside Medical Center" class="w-full h-full object-cover" data-alt="A brightly lit, expansive interior lobby of a contemporary medical center with white polished floors and minimalist wooden accents. Large windows let in soft, diffused daylight, creating an airy and calm atmosphere. The design is sleek and modern-corporate, emphasizing trust and patient comfort through generous whitespace and meticulous organization." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB81Qev5JoKgFVRsEwMPPLg0AnnRPXPnd4HFseX7gaKionZYVteRjiwu48Ta-CjTiOhtV2qKzVfUjCVcGkuWmRSyT6C6Xn3epKzw75_laWbGwZ6JaJyTnst8f9FAsWdsc7kBfdU3B64Os2LUeq7zzSdkgAcBIIb4CO3x6gRjSeeueH2zaRFn93iUgQqoH3jScokDJDZ2hvk7EXZO7QydQXmXedGLLsZ9zquqN8uAFL1NwVNly-sNyFbDzPBegdchv6LQpZDprYAdQ"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">Westside Medical Center</h2>
+<div class="flex items-center gap-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.6
+                                </div>
+</div>
+<p class="text-on-surface-variant font-label-md text-label-md mb-base flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                                3.1 miles away • 450 Sunset Blvd
+                            </p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">Oncology</span>
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">Neurology</span>
+</div>
+</div>
+<div class="flex gap-base">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex-1">Book Appointment</button>
+<button class="border border-primary text-primary px-4 py-2 rounded-lg font-label-md text-label-md flex-1">View Details</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_rgba(30,41,59,0.05)] border border-transparent hover:border-primary-container transition-all flex flex-col md:flex-row gap-md">
+<div class="w-full md:w-40 h-40 rounded-lg overflow-hidden shrink-0">
+<img alt="St. Jude Specialty" class="w-full h-full object-cover" data-alt="A focused close-up of a state-of-the-art surgical suite with advanced medical imaging technology and robotic surgical arms. The lighting is cool-toned and professional, highlighting the high-tech precision of the facility. The color palette is clinical blue and sterile white, evoking a sense of cutting-edge expertise and meticulous safety standards in a modern medical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ1ulinU6_KRQ7afR-PrxHqvlJAERtDUU4VNcoOdbwNvR9NXzg1vPnhSOHoHMcVssD8RbWMGKEnO67WGCx2qM2YCK5pQ1HqlLxokwB9PHBGf_oJ1lEo75jNN1OI1bdCtzJAbwt76vPi7IqOB31moR-1cWEqfYvDiRK3zYv2HOef0XlT9i0D_0Yy_9cNKeidUw6K2-qSVF50ROSNuQPRsiJYIJqgGhBb5KAijwhcSg_CEGQlwZGPZxB2P5cX2Qkaxxc9jSkUasK9w"/>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">St. Jude Specialty</h2>
+<div class="flex items-center gap-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    4.9
+                                </div>
+</div>
+<p class="text-on-surface-variant font-label-md text-label-md mb-base flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                                4.5 miles away • 88 Medical Plaza
+                            </p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">Dermatology</span>
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">Orthopedics</span>
+</div>
+</div>
+<div class="flex gap-base">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md flex-1">Book Appointment</button>
+<button class="border border-primary text-primary px-4 py-2 rounded-lg font-label-md text-label-md flex-1">View Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Bento Column -->
+<div class="lg:col-span-5 space-y-md">
+<!-- Mini Map Card -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(30,41,59,0.05)] h-64 relative group">
+<div class="absolute inset-0 bg-slate-200" data-location="New York City" style="">
+<img alt="Map context" class="w-full h-full object-cover opacity-80" data-alt="A stylized digital map overview of a modern urban layout with clean lines and subtle blue and gray tones. Several teardrop-shaped pins in vibrant Medical Blue are strategically placed, indicating hospital locations. The map has a professional, minimal aesthetic with high airflow and balanced spacing, designed for rapid spatial orientation in a city-wide healthcare application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAXpIgQ3x1SjAd807ORTyYTZomUtSbp9wkK6ireZUtyqjungT7fNlf1vbbwvYtVvY2lIcspxODZ0ZHuRmgQOYbYJjZBXPBK2QxC-E0gvqdI9rmyqbgSkltUXEdWsaZ-Q2P2uQB0TPI3-FNAfyvCauj6tWuCN16Xl2GhmpZCTJF67TPShVJSfsgzT8b2dZQitpUmSZnBud9xbtGBq-m2_e7F_q-5kbnIQjWv2mJgV92EB-AZ7DowBJRiS08L0l8u8yMpCZGwlP6Vw"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="absolute bottom-4 right-4 z-10">
+<button class="bg-surface-container-lowest text-primary p-2 rounded-full shadow-lg hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Trending / Stats Bento Item -->
+<div class="bg-primary-container/10 p-md rounded-xl border border-primary-container/20">
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Near Your Current Location</h3>
+<div class="space-y-base">
+<div class="flex items-center justify-between p-base bg-surface-container-lowest rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary" data-icon="bolt">bolt</span>
+<span class="font-label-md text-label-md">Shortest Wait: Central City</span>
+</div>
+<span class="font-bold text-secondary">8m</span>
+</div>
+<div class="flex items-center justify-between p-base bg-surface-container-lowest rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="local_hospital">local_hospital</span>
+<span class="font-label-md text-label-md">Nearest ER: City West</span>
+</div>
+<span class="font-bold text-primary">1.2mi</span>
+</div>
+</div>
+</div>
+<!-- Help Center / Banner -->
+<div class="bg-tertiary-container text-on-tertiary-container p-md rounded-xl flex items-center gap-md">
+<div class="p-3 bg-on-tertiary-container/10 rounded-full">
+<span class="material-symbols-outlined text-3xl" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md">Need immediate help?</p>
+<p class="text-label-md font-label-md opacity-90">Our 24/7 medical concierge is available for referral assistance.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-on-primary-fixed shadow-[0_-4px_20px_rgba(30,41,59,0.05)] md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold bg-primary-container/20 dark:bg-primary-container rounded-xl px-4 py-1 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-label-sm text-label-sm">Appointments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-sm text-label-sm">Records</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Desktop Navigation Side Mirroring (Integrated in AppBar or Side) -->
+<!-- For consistency with the JSON, TopAppBar already handles primary brand, but we'll ensure desktop nav links exist if needed -->
+<div class="hidden md:flex fixed top-0 right-[calc(80px+48px)] h-16 items-center gap-md z-[51]">
+<a class="text-primary font-bold border-b-2 border-primary py-1" href="#">Directory</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Appointments</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Records</a>
+</div>
+</body></html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CityCare Map View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#2a5c82",
+                    "on-tertiary-container": "#b2d2f4",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#9ccbf7",
+                    "outline": "#72787f",
+                    "tertiary-container": "#3b5b78",
+                    "surface-tint": "#316289",
+                    "tertiary": "#22435f",
+                    "on-background": "#111c2d",
+                    "on-tertiary-fixed-variant": "#294965",
+                    "primary-fixed": "#cde5ff",
+                    "on-secondary-container": "#345881",
+                    "on-surface": "#111c2d",
+                    "secondary-fixed": "#d2e4ff",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-dim": "#d0daf2",
+                    "tertiary-fixed-dim": "#a9caeb",
+                    "tertiary-fixed": "#cee5ff",
+                    "surface-container-highest": "#d8e3fb",
+                    "primary": "#074469",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#abcffe",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "secondary": "#3d608a",
+                    "on-secondary-fixed": "#001c37",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#dfe8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9ff",
+                    "inverse-on-surface": "#ecf0ff",
+                    "on-tertiary-fixed": "#001d32",
+                    "outline-variant": "#c1c7cf",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#41474e",
+                    "surface-variant": "#d8e3fb",
+                    "surface-container": "#e8eeff",
+                    "on-primary-container": "#a5d4ff",
+                    "inverse-surface": "#273143",
+                    "inverse-primary": "#9ccbf7",
+                    "on-secondary-fixed-variant": "#234970",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "surface-bright": "#f9f9ff",
+                    "secondary-fixed-dim": "#a6c9f8",
+                    "on-primary-fixed": "#001d32"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sidebar_width": "260px",
+                    "margin_desktop": "40px",
+                    "gutter": "24px",
+                    "container_max_width": "1600px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "title-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "code-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .map-container {
+            background-image: url('https://lh3.googleusercontent.com/aida/ADBb0ugH9SybXyU8gdeibdxuSmeETexhmyndGlsk4381WtMHD1EAlcIqsS_7vtN-cYsblF2iymZac3h6eyclduZmfcMmsCKVuORtxuz9ZF5LfIYgKWHHJv3mN2mypx_iUPFgzmY1H1MxFvxTBVQUCbOKb3Lbjk-tuto4cUY2bLr6FmIG-_ffd4Gmz7SOay13QYB8auO6gUPyB5JCacN_d_gXXftw2ueiOwSpqNQjF8IMABr-UiNeiUlt1ufhvg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- Top Navigation Anchor -->
+<header class="w-full top-0 sticky bg-surface shadow-[0_4px_20px_rgba(30,41,59,0.05)] z-50">
+<div class="flex items-center justify-between px-4 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary font-headline-md text-headline-md" data-icon="local_hospital">local_hospital</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CityCare</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container transition-colors p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Map Canvas -->
+<main class="relative h-[calc(100vh-64px-72px)] w-full map-container">
+<!-- Floating Search Bar -->
+<div class="absolute top-4 left-0 right-0 px-4 z-40">
+<div class="bg-surface shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-outline-variant/30 rounded-xl px-4 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-full placeholder:text-outline" placeholder="Search hospitals, clinics..." type="text"/>
+<span class="material-symbols-outlined text-outline" data-icon="tune">tune</span>
+</div>
+<!-- Quick Filters -->
+<div class="flex gap-2 mt-4 overflow-x-auto no-scrollbar">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-full whitespace-nowrap shadow-sm">Nearby</button>
+<button class="bg-surface border border-outline-variant text-on-surface-variant font-label-md text-label-md px-4 py-2 rounded-full whitespace-nowrap">Specialists</button>
+<button class="bg-surface border border-outline-variant text-on-surface-variant font-label-md text-label-md px-4 py-2 rounded-full whitespace-nowrap">Open 24/7</button>
+</div>
+</div>
+<!-- Dynamic Medical Pins (Visual Overlays for Context) -->
+<!-- These represent the 'medical-themed pins' requested, placed relative to the background map content -->
+<div class="absolute top-1/3 left-1/4 group cursor-pointer">
+<div class="bg-primary text-on-primary p-2 rounded-full rounded-bl-none rotate-45 shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined -rotate-45" data-icon="medical_services" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+</div>
+<div class="absolute top-[45%] right-1/3 group cursor-pointer">
+<div class="bg-primary text-on-primary p-2 rounded-full rounded-bl-none rotate-45 shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined -rotate-45" data-icon="emergency" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+</div>
+<!-- Central Heart Institute Preview Card -->
+<div class="absolute bottom-4 left-0 right-0 px-4 z-40">
+<div class="bg-surface-container-lowest shadow-[0_-8px_30px_rgba(0,0,0,0.05)] border border-outline-variant/20 rounded-xl p-4 flex flex-col gap-4">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container-high flex-shrink-0">
+<img alt="Central Heart Institute" class="w-full h-full object-cover" data-alt="A bright, modern exterior of a contemporary healthcare facility named Central Heart Institute. The building features clean glass windows, architectural white concrete, and professional landscaping. The lighting is bright and airy, reflecting a high-end corporate medical aesthetic with a cool blue and white color palette that conveys trust and clinical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCNDMwgiSmm78pusLG8n99rker6jWQTw3RNu_9C5KLa4H-cr883owDH3QZBOxEqoeOlXeyeFsMgNGz8VxWx3ybFP4DyUqwziZrD_jJN5uJArkXgHF-H3rLLsZByr1V19g6PUVsyH8b5lNzIFDbSeHdLpH9CQWtXrquCUUElbyltHaVWow3xr7Uv1JOnbifgZCvxKuzOonjmtPAxMtM2-1_0LF7C_YFBsRdzeTDdpehfqNaGi2_Lk8KZaxev1vKCxHXO3nmN44Mxg"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-primary">Central Heart Institute</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mt-0.5">Cardiology &amp; Diagnostics</p>
+</div>
+<button class="text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<div class="flex items-center gap-3 mt-2">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[#FFB800] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md">4.9</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="text-label-md font-label-md">0.8 miles</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary font-label-md text-label-md h-11 rounded-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="directions">directions</span>
+                        Get Directions
+                    </button>
+<button class="flex-1 bg-secondary-container text-on-secondary-container font-label-md text-label-md h-11 rounded-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                        Book Visit
+                    </button>
+</div>
+</div>
+</div>
+<!-- Location Center Button -->
+<div class="absolute bottom-52 right-4">
+<button class="w-12 h-12 bg-surface shadow-lg rounded-full flex items-center justify-center text-primary border border-outline-variant/30 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface shadow-[0_-4px_20px_rgba(30,41,59,0.05)] z-50">
+<!-- Directory active as we are in Map/Search view -->
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-label-sm text-label-sm">Appointments</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+<span class="font-label-sm text-label-sm">Records</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+</body></html>

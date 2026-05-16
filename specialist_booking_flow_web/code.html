@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CityCare Healthcare Portal - Specialist Booking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#d0daf2",
+                      "on-tertiary-fixed-variant": "#294965",
+                      "on-secondary-container": "#345881",
+                      "inverse-surface": "#273143",
+                      "secondary-container": "#abcffe",
+                      "outline-variant": "#c1c7cf",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#d8e3fb",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#e8eeff",
+                      "surface-container-highest": "#d8e3fb",
+                      "secondary-fixed": "#d2e4ff",
+                      "on-background": "#111c2d",
+                      "primary-container": "#2a5c82",
+                      "on-surface": "#111c2d",
+                      "on-tertiary-fixed": "#001d32",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#9ccbf7",
+                      "primary-fixed": "#cde5ff",
+                      "tertiary-fixed-dim": "#a9caeb",
+                      "secondary-fixed-dim": "#a6c9f8",
+                      "secondary": "#3d608a",
+                      "on-error": "#ffffff",
+                      "surface-bright": "#f9f9ff",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#3b5b78",
+                      "on-primary": "#ffffff",
+                      "background": "#f9f9ff",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#dfe8ff",
+                      "inverse-primary": "#9ccbf7",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#074469",
+                      "on-surface-variant": "#41474e",
+                      "on-tertiary-container": "#b2d2f4",
+                      "on-primary-container": "#a5d4ff",
+                      "surface-tint": "#316289",
+                      "surface": "#f9f9ff",
+                      "on-primary-fixed": "#001d32",
+                      "tertiary-fixed": "#cee5ff",
+                      "outline": "#72787f",
+                      "on-secondary-fixed-variant": "#234970",
+                      "on-primary-fixed-variant": "#124a6f",
+                      "inverse-on-surface": "#ecf0ff",
+                      "tertiary": "#22435f",
+                      "surface-container-low": "#f0f3ff",
+                      "on-secondary-fixed": "#001c37"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "sidebar_width": "260px",
+                      "margin_desktop": "40px",
+                      "gutter": "24px",
+                      "container_max_width": "1600px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "code-md": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c1c7cf; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- Persistent SideNav -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-low border-r border-outline-variant flex flex-col py-unit z-30">
+<div class="px-6 py-6 mb-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CityCare</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Clinical Portal</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="groups">groups</span>
+<span class="font-body-md text-body-md">Directory</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-semibold scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md text-body-md">Appointments</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="folder_shared">folder_shared</span>
+<span class="font-body-md text-body-md">Records</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="mail">mail</span>
+<span class="font-body-md text-body-md">Messages</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="account_circle">account_circle</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+<a class="flex items-center px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="px-4 py-6 border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-lg font-body-md text-body-md font-semibold hover:opacity-90 transition-opacity">
+                New Consultation
+            </button>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-[260px] right-0 h-16 bg-surface flex items-center justify-between px-gutter border-b border-outline-variant z-20">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full focus-within:ring-2 focus-within:ring-primary rounded-lg transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-body-md outline-none" placeholder="Search specialists, clinics, or records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="font-label-md text-label-md text-on-surface font-bold">Dr. Sarah Jenkins</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Clinical Admin</p>
+</div>
+<img alt="User clinical profile" class="h-10 w-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a female doctor in a white clinical coat, wearing a stethoscope around her neck. The background is a blurred, high-end medical clinic interior with soft, professional lighting in a light-mode aesthetic. Her expression is confident and reassuring, reflecting a corporate modern healthcare environment with a clean and minimal design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgov2OfYB6J7HY1TV1pqwthkp8klssqevJmqCh1BDpmoCtcwBD3z9EGlJid5c6vwy9DMTCy5o0zTa-vUs-aBRDdQm3lqf0xZYLTC8bdKHjy3TL8lUotC_-A6NqdNfEDvrR-PlGLUBNa2e51U5httMO-Tu3sHIXErF4wxJWKzdkGl6u1S_nm6Onb2LAW5o8UALQI68T0sfxl3LfZ6ZjEy36RpQAR8Gl58LO3SnFptJjWh4Ow9Ntm6JloMW8Ow1th7JrOBb9mvgJbw"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] mt-16 h-[calc(100vh-64px)] overflow-y-auto bg-surface p-10">
+<div class="max-w-[1600px] mx-auto">
+<!-- Progress Stepper -->
+<div class="mb-10 max-w-4xl mx-auto">
+<div class="flex items-center justify-between relative">
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant -translate-y-1/2 -z-10"></div>
+<div class="flex flex-col items-center gap-2 bg-surface px-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<span class="font-label-md text-label-md text-primary">Specialist</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-surface px-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">2</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Time Slot</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-surface px-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">3</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Reason</span>
+</div>
+<div class="flex flex-col items-center gap-2 bg-surface px-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">4</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Confirm</span>
+</div>
+</div>
+</div>
+<div class="flex gap-10">
+<!-- Left Column: Selection Area -->
+<div class="flex-1">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Book a Specialist</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select a healthcare professional for your consultation.</p>
+</div>
+<div class="flex gap-3">
+<select class="bg-surface border border-outline-variant rounded-lg px-4 py-2 text-body-md outline-none focus:ring-2 focus:ring-primary">
+<option>All Specialties</option>
+<option>Cardiology</option>
+<option>Neurology</option>
+</select>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Specialist Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Specialist Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:border-primary transition-all group cursor-pointer">
+<div class="flex gap-5">
+<img alt="Doctor portrait" class="h-32 w-32 rounded-lg object-cover" data-alt="A portrait of a male medical specialist in professional attire, sitting in a modern, brightly lit office. He has a friendly but professional expression, conveying trust and medical expertise. The lighting is clean and clinical, with a high-key minimal background consistent with a corporate healthcare platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNJL1WaIIzaE9eLijs0A2CNd5js71xqBoLdm4G5y5PkL6r5IcEfrBv9FxLSENpaC50XsTvJUe_rLkOD1o92ktznmr0-gM6DV1MKE_vv6Ntvp9-glWVv5zMK1_YHTULUE_sYxqbGz0AncGVFSq6NZd6k1-zaXqkHsT7NalIOGtiQiiEL9FmMzjlon-ic5Z3rgRWf1Ezr-G5fR24aaq_D5L3M3gX4IZyFiBmY2VQMKKvnejxT_Nf0ULFJ7rUaWTBp0MZ1egg0pecdQ"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Dr. Michael Chen</h3>
+<span class="inline-block bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-md text-label-md">CARDIOLOGY</span>
+</div>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[20px] mr-1" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-body-md">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md mt-2 line-clamp-2">Specializing in non-invasive cardiac imaging and preventive cardiology with over 15 years experience.</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined mr-2 text-[18px]" data-icon="event_available">event_available</span>
+<span class="font-label-md text-label-md">Next: Tomorrow, 9:30 AM</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded font-body-md font-semibold group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Select</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Specialist Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:border-primary transition-all group cursor-pointer ring-2 ring-primary">
+<div class="flex gap-5">
+<img alt="Doctor portrait" class="h-32 w-32 rounded-lg object-cover" data-alt="A professional female specialist with glasses, smiling warmly. She is wearing a white medical coat in a clean, daylight-filled contemporary clinic. The overall aesthetic is minimal and professional, with a soft cool-gray background and sharp focus on the subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp46k1kYqTSfOZrrlVHjMA54obhmUdGZTr7Qcr9d-CxXn6UduMTj6NdDWjKbrLErQO0Q4ebALcNq8-CNFWH7INMbsl7LqhQNqsB5Qo266r73LW-9v9gZcRyf_FocdY2KmXCODSgXI1lMH_2CTYRnMobeaI1HYxXQC2E4DRhBYdOqfwJ-gWBEt1nsB7rIMFSaUF0bA2PuAh9slXRlWcZq2V148vt8CzpcsfVD8M04P8RLtcqNNVwqKGUA0IYQavpRX3mRCsyUsc3w"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Dr. Elena Rodriguez</h3>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="inline-block bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-md text-label-md">NEUROLOGY</span>
+</div>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[20px] mr-1" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-body-md">5.0</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md mt-2 line-clamp-2">Expert in clinical neurophysiology and complex migraine management. Board certified since 2010.</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined mr-2 text-[18px]" data-icon="event_available">event_available</span>
+<span class="font-label-md text-label-md">Next: Wed, 2:00 PM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md font-semibold text-primary">Selected</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Specialist Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:border-primary transition-all group cursor-pointer">
+<div class="flex gap-5">
+<img alt="Doctor portrait" class="h-32 w-32 rounded-lg object-cover" data-alt="Portrait of a diverse male doctor in his 40s wearing professional medical attire and a stethoscope. He is standing in a brightly lit hallway of a high-end private hospital. The image has a clean, clinical aesthetic with soft shadows and professional lighting in a modern minimal style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfLp2-Lkhk7CnaR_I9j8qLYyQRz0JuNRCuuBCQdiYEkOO0QqaH2oTYcPAXKEcJwlWF77QS0rYgArHZ8kZQKA4AteMO9g9pOafB_u6EztmWegpyxD6te5f1KpwdFr5-Q_NttIoUpEfILfYcF-crBdX25lp_TZhKUJD_-YJEaPrLSvm08SUtIJCFaYoOupC7fWhrylZc-XdNv7wPHxs4oQy4NaUvzRNkthw6Cfob8UCieYBKXgBx2zISNdDqM6jhbNuCmmtmx7kD4A"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Dr. James Wilson</h3>
+<span class="inline-block bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-md text-label-md">DERMATOLOGY</span>
+</div>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[20px] mr-1" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-body-md">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md mt-2 line-clamp-2">Focus on skin cancer detection and inflammatory skin conditions using advanced laser therapy.</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined mr-2 text-[18px]" data-icon="event_available">event_available</span>
+<span class="font-label-md text-label-md">Next: Fri, 11:15 AM</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded font-body-md font-semibold group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Select</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Specialist Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 hover:border-primary transition-all group cursor-pointer">
+<div class="flex gap-5">
+<img alt="Doctor portrait" class="h-32 w-32 rounded-lg object-cover" data-alt="A professional headshot of a middle-aged female medical doctor with a warm, empathetic expression. She is in a minimalist medical setting with soft, diffused white lighting. The composition is clean and airy, following a high-end modern clinical design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuGJrGyF9wUGe8glpLPWtg3u158snlRZ08cL77gQ4WbKksgsW3tsrBYhPfpkCQ6i-cHExd6SS6XvoNcdTifqFwDzdAHWf7PiFCizZVdF52hbAtYV0hCcLg_HiSdiPWvuNtlgXAKkF4qrwz_55K8ZbjrG302bfB5ozKAT8JnR5BTYNFgr7jmyNRrLXAPdU82HWZh9OPvo1ynPSXMzSWvToCU_621V8RACg965YVYZgu8Tq-24ZOklsMsI5lNuNQSw0f-Y1O0apbvw"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Dr. Linda Gwan</h3>
+<span class="inline-block bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-md text-label-md">PEDIATRICS</span>
+</div>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-[20px] mr-1" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-body-md">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md mt-2 line-clamp-2">Dedicated pediatric specialist focusing on developmental milestones and early childhood wellness.</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined mr-2 text-[18px]" data-icon="event_available">event_available</span>
+<span class="font-label-md text-label-md">Next: Tomorrow, 2:30 PM</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded font-body-md font-semibold group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Select</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Booking Summary Sidebar -->
+<div class="w-[400px]">
+<div class="sticky top-0 bg-surface-container-low border border-outline-variant rounded-xl p-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Booking Summary</h2>
+<div class="space-y-6">
+<!-- Selected Specialist Summary -->
+<div class="flex items-center gap-4 pb-6 border-b border-outline-variant">
+<img alt="Dr. Rodriguez Small" class="h-16 w-16 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfhs3mMTxyStDth_cJdI1DULwohAHBPGGq1mYmgK8JWhAiQsMraRBO6rXQA5ZX7UlsRHg8CfWO0LTkHMcBDPB-P-6U8pIT2fQUaf5CttAql0lGMWMeFPGOjzUBPOt_d0VMpjtv17cBQKuDgOuWSbubPiTeHJXEonVv4cM5dOqbJkMWQo0yBb73bntwwjc4_YYqxnDc91DY295QXoQYVjAE4ETyiIu6BicSNmBPPZoEEXvOPFtsNaTWxTKd8vB_l25K8USs_vPEUw"/>
+<div>
+<p class="font-title-lg text-title-lg text-on-surface leading-tight">Dr. Elena Rodriguez</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Neurology Specialist</p>
+</div>
+</div>
+<!-- Empty States / Placeholders for next steps -->
+<div class="space-y-4">
+<div class="flex items-center gap-3 p-3 rounded-lg border border-dashed border-outline-variant opacity-60">
+<span class="material-symbols-outlined text-outline" data-icon="schedule">schedule</span>
+<p class="font-body-md text-body-md italic text-on-surface-variant">No date/time selected yet</p>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-dashed border-outline-variant opacity-60">
+<span class="material-symbols-outlined text-outline" data-icon="description">description</span>
+<p class="font-body-md text-body-md italic text-on-surface-variant">Reason for visit missing</p>
+</div>
+</div>
+<!-- Cost Estimate -->
+<div class="bg-surface-container-high rounded-lg p-4">
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Consultation Fee</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">$180.00</span>
+</div>
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Facility Fee</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">$25.00</span>
+</div>
+<div class="h-px bg-outline-variant my-3"></div>
+<div class="flex justify-between">
+<span class="font-title-lg text-title-lg text-on-surface font-bold">Total Estimate</span>
+<span class="font-title-lg text-title-lg text-primary font-bold">$205.00</span>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-body-lg text-body-lg font-bold hover:opacity-95 transition-all shadow-lg shadow-primary/10">
+                                Continue to Scheduling
+                            </button>
+<p class="text-center font-label-md text-label-md text-on-surface-variant px-4">
+                                You won't be charged until after your appointment is confirmed.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento-style Information Section (Additional UI Quality) -->
+<div class="mt-16 grid grid-cols-12 gap-6 pb-20">
+<div class="col-span-12">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Why book through CityCare?</h3>
+</div>
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<div class="bg-secondary-container w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">Vetted Specialists</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">All clinical staff undergo rigorous credentialing and background checks to ensure the highest standard of care.</p>
+</div>
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<div class="bg-secondary-container w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="sync">sync</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">Instant Record Sync</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Your consultation notes and prescriptions are instantly added to your secure health record for immediate access.</p>
+</div>
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<div class="bg-secondary-container w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="support_agent">support_agent</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">24/7 Clinical Support</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Access our concierge clinical support team for any pre-booking or follow-up questions you might have.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

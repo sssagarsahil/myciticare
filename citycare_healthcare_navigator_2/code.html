@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CityCare - Patient Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#abcffe",
+                        "on-secondary-container": "#345881",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#294965",
+                        "on-tertiary-container": "#b2d2f4",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "primary-container": "#2a5c82",
+                        "outline": "#72787f",
+                        "surface-container-high": "#dfe8ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#cde5ff",
+                        "on-secondary-fixed-variant": "#234970",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#9ccbf7",
+                        "on-surface-variant": "#41474e",
+                        "on-background": "#111c2d",
+                        "on-secondary-fixed": "#001c37",
+                        "on-primary-fixed": "#001d32",
+                        "tertiary-fixed": "#cee5ff",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#d8e3fb",
+                        "surface-tint": "#316289",
+                        "surface-dim": "#d0daf2",
+                        "outline-variant": "#c1c7cf",
+                        "secondary-fixed-dim": "#a6c9f8",
+                        "tertiary-container": "#3b5b78",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e8eeff",
+                        "on-surface": "#111c2d",
+                        "secondary": "#3d608a",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#273143",
+                        "primary": "#074469",
+                        "surface": "#f9f9ff",
+                        "background": "#f9f9ff",
+                        "tertiary": "#22435f",
+                        "on-primary-container": "#a5d4ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#001d32",
+                        "inverse-on-surface": "#ecf0ff",
+                        "tertiary-fixed-dim": "#a9caeb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sidebar_width": "260px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container_max_width": "1600px",
+                        "margin_desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "code-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Persistent SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-low border-r border-outline-variant flex flex-col py-unit z-50">
+<div class="px-gutter mb-10 flex flex-col gap-1">
+<span class="font-headline-md text-headline-md font-bold text-primary">CityCare</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Clinical Portal</span>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Active State Logic applied to Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-semibold rounded-lg transition-transform active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md text-body-md">Directory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-md text-body-md">Appointments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-body-md text-body-md">Records</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-body-md text-body-md">Messages</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-body-md text-body-md font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined">add</span>
+                New Consultation
+            </button>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface border-b border-outline-variant flex justify-between items-center px-gutter z-40">
+<div class="flex items-center bg-surface-container-low px-4 py-1.5 rounded-lg border border-outline-variant w-96 focus-within:ring-2 focus-within:ring-primary">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-full placeholder:text-outline" placeholder="Search records, doctors, or results..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold text-on-surface">Alex Johnston</p>
+<p class="font-label-md text-[10px] text-on-surface-variant">Patient ID: #82910</p>
+</div>
+<img alt="User clinical profile" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A professional headshot of a middle-aged male patient with a kind smile, set against a clean and minimalist clinical background with soft, diffused lighting. The photo has a high-key aesthetic with a focus on natural skin tones and a sense of calm professionalism, fitting for a modern healthcare portal. The overall mood is trustworthy and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM448PTCmLX35uL005mk81gvsXIBhngeNO8W6ndXU3eOQHpyIAZ1l9zri0_Kt9WzP6pkQHt3t-yzn1Gb14Mtfdcf_K2zdYmS3YflxdrukAmFBJ1VTrvrOFI9xDPkKPGAT4R5OdNi_z6cu8peFQlr3Z-5uHOVGFPdrsZ-9tYxaYuJERl1iBQhUsnQDcOcE_NnkxA80gIYTteOJ5hoFKWRgsWnkyshGou8fZZJapaX8UlX83xpqzRYfgHGYICF27Hn9AKq_xue5m0A"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="max-w-container_max_width mx-auto px-margin_desktop py-10 space-y-10">
+<!-- Welcome Section -->
+<section class="flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Good Morning, Alex</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your vitals are looking stable. You have 1 appointment today.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container border border-outline-variant p-4 rounded-lg flex items-center gap-4">
+<div class="bg-primary-fixed-dim p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">favorite</span>
+</div>
+<div>
+<p class="text-[11px] font-label-md text-on-surface-variant uppercase">Heart Rate</p>
+<p class="font-title-lg text-title-lg text-on-surface">72 <span class="text-label-md font-normal">bpm</span></p>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant p-4 rounded-lg flex items-center gap-4">
+<div class="bg-primary-fixed-dim p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">thermostat</span>
+</div>
+<div>
+<p class="text-[11px] font-label-md text-on-surface-variant uppercase">Body Temp</p>
+<p class="font-title-lg text-title-lg text-on-surface">98.6 <span class="text-label-md font-normal">°F</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Hero Cards Row -->
+<section class="grid grid-cols-12 gap-gutter">
+<!-- Next Appointment Card -->
+<div class="col-span-8 bg-primary-container text-on-primary-container p-8 rounded-xl flex items-center justify-between relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20"></div>
+<div class="relative z-10 space-y-6 max-w-lg">
+<div class="space-y-1">
+<span class="font-label-md text-label-md bg-white/10 px-3 py-1 rounded-full uppercase">Next Appointment</span>
+<h2 class="font-headline-md text-headline-md font-bold">Dr. Sarah Jenkins</h2>
+<p class="font-body-lg text-body-lg opacity-90">Specialist in Cardiology · St. Jude Medical Wing</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-md text-body-md">Oct 24, 2023</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">schedule</span>
+<span class="font-body-md text-body-md">10:00 AM</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-6 py-2.5 rounded-lg font-label-md text-label-md uppercase font-bold hover:bg-surface-bright transition-colors">Check-in</button>
+<button class="bg-white/10 text-white border border-white/20 px-6 py-2.5 rounded-lg font-label-md text-label-md uppercase font-bold hover:bg-white/20 transition-colors">Prepare for Visit</button>
+</div>
+</div>
+<div class="hidden lg:block relative z-10">
+<img alt="Dr. Sarah Jenkins" class="w-40 h-40 rounded-full border-4 border-white/20 object-cover" data-alt="A professional portrait of a female cardiologist in her 40s wearing a white lab coat and a stethoscope. She is smiling warmly in a bright, modern clinical setting with blurred medical equipment in the background. The lighting is soft and professional, emphasizing expertise and compassion within the high-end CityCare brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA32thkVMM9S6R_kyxdfGWWvOL9CZ0b_wr6aOafJ0tyffYJgPeujY_OvZGLLK5w1EqnRAxevJHdGlkAmOjJU4f-hXVtuZRJwuXJtmWd1HWgegKjpwmposD7bHz-i2-Z01bSL0nRk_ztvokDgRsGEvGcaH29NmQ9RgxvDvwfdzOmEwNco6Ma2prKyzaE7Xm1tIKmY8F_UGVb281SnlQBpsWiFGv9JYsSseU4Lt0O3za60LxLOSvmNoo0XLHGdGcQYsEr9JF5iWg_-Q"/>
+</div>
+</div>
+<!-- Virtual Care Shortcut -->
+<div class="col-span-4 bg-white border border-outline-variant p-8 rounded-xl flex flex-col justify-between hover:border-primary transition-colors cursor-pointer group">
+<div>
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">videocam</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface mb-2">Virtual Care</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Access your telehealth portal for on-demand consultations and remote follow-ups.</p>
+</div>
+<a class="flex items-center text-primary font-label-md text-label-md uppercase font-bold group-hover:gap-3 transition-all" href="#">
+                        Launch Portal <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Lists Grid -->
+<section class="grid grid-cols-12 gap-gutter">
+<!-- Upcoming Visits -->
+<div class="col-span-7 space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Upcoming Visits</h3>
+<button class="text-primary font-label-md text-label-md font-bold uppercase hover:underline">View Calendar</button>
+</div>
+<div class="space-y-3">
+<!-- Visit 1 -->
+<div class="bg-white border border-outline-variant p-4 rounded-lg flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center font-bold text-primary">MC</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-bold">Dr. Michael Chen</p>
+<p class="text-label-md text-on-surface-variant">General Practice · Routine Checkup</p>
+</div>
+<div class="text-right">
+<p class="font-body-md text-body-md">Nov 12, 2023</p>
+<p class="text-label-md text-on-surface-variant">02:30 PM</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Visit 2 -->
+<div class="bg-white border border-outline-variant p-4 rounded-lg flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center font-bold text-primary">ER</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-bold">Dr. Elena Rodriguez</p>
+<p class="text-label-md text-on-surface-variant">Dermatology · Follow-up</p>
+</div>
+<div class="text-right">
+<p class="font-body-md text-body-md">Dec 05, 2023</p>
+<p class="text-label-md text-on-surface-variant">11:15 AM</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recent Health Records -->
+<div class="col-span-5 space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Recent Health Records</h3>
+<button class="text-primary font-label-md text-label-md font-bold uppercase hover:underline">All Records</button>
+</div>
+<div class="bg-white border border-outline-variant rounded-lg divide-y divide-outline-variant">
+<div class="p-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">lab_research</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold">Blood Panel Results</p>
+<p class="text-[11px] text-on-surface-variant uppercase font-label-md">Oct 18, 2023</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+</div>
+<div class="p-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">description</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold">Visit Summary - Dr. Jenkins</p>
+<p class="text-[11px] text-on-surface-variant uppercase font-label-md">Oct 10, 2023</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+</div>
+<div class="p-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">radiology</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md font-semibold">Chest X-Ray Report</p>
+<p class="text-[11px] text-on-surface-variant uppercase font-label-md">Sep 24, 2023</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Health Resources Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Health Resources &amp; News</h3>
+<button class="text-primary font-label-md text-label-md font-bold uppercase hover:underline">Browse Library</button>
+</div>
+<div class="grid grid-cols-3 gap-gutter">
+<div class="group cursor-pointer">
+<div class="rounded-lg overflow-hidden mb-3 border border-outline-variant h-40">
+<img alt="Clinical Research" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro photograph of professional medical equipment and a microscope in a clean, modern lab. Soft blue and white tones dominate the scene, suggesting clinical precision and innovation. The lighting is bright and airy, reflecting the professional and minimalist style of the CityCare healthcare portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ38t8zPdQQW7GihdKYSNotmx7hiUfTsCyYtLedYBU9T1YrGj5l59hgW5XGWCY-bMW-cYedt6BKcU4FPN1Y_hc93PTr1N4xJ9Unnvlr31BWnateavDVYdjWB6L9bamAWbyQ9Ile90wEZgROKgx9aUow2sO1_9T_Nx_uYY4mzr-97xkMtFazkSb8NAd1leDDI7DmYpd7kNJBJ4AicQ7T_Gp3rw57yGgg10JsrCQmBxxbmS4_LGdOwgAn1mDDB4ebIQgcairVIyPig"/>
+</div>
+<p class="text-label-md font-bold text-primary uppercase mb-1">Clinical Insight</p>
+<h4 class="font-body-lg text-body-lg font-bold group-hover:text-primary transition-colors">New Guidelines for Heart Health in 2024</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-1">Discover the latest updates in cardiology from our leading specialists.</p>
+</div>
+<div class="group cursor-pointer">
+<div class="rounded-lg overflow-hidden mb-3 border border-outline-variant h-40">
+<img alt="CityCare News" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide-angle interior view of a modern hospital lobby with floor-to-ceiling windows, white marble floors, and lush green indoor plants. The space is filled with bright, natural sunlight, creating a welcoming and high-end atmosphere. The image emphasizes the minimalist and professional architectural style of CityCare facilities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxuLSj9qSZE-iDbntL1R_SoD9IzLZ7OBhkM-8TvvmIRwW2OYb77ZTN3MOUT-vLFvwUU55u7UdRUSMOtQ9yVJlNnU8-ishZreM_EXvRsrB-SCdQoYLSQ9DeWzTmHj9K6A4DH_svgJ-WEgwZDo-A-wUvmgfIOZjPaVLT6C75m52nmluvhQxkb0GRGoNf4zOpq7KbHDPKEHHIdQ2a0UHPqblVP4ctDxz1QJ7QZj91GT9COu9Zf7j5C3chIbIlRpzHiaGIWBPHgWJXZg"/>
+</div>
+<p class="text-label-md font-bold text-primary uppercase mb-1">Hospital News</p>
+<h4 class="font-body-lg text-body-lg font-bold group-hover:text-primary transition-colors">CityCare Expansion: New North Wing Opens</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-1">We are proud to announce the opening of our state-of-the-art oncology center.</p>
+</div>
+<div class="group cursor-pointer">
+<div class="rounded-lg overflow-hidden mb-3 border border-outline-variant h-40">
+<img alt="Wellness Tips" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene image showing a yoga mat and a bottle of water on a light wood floor in a brightly lit studio. The morning sun casts soft shadows, creating a peaceful and motivational mood. The aesthetic is clean, minimalist, and focused on holistic wellness, perfectly complementing the medical content of the dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_tcL0rLpMGGFuHSFi9nWh_OxHuOqISvOiG-8B58cA_Jvw5uEOmmV_ELjs_GjSOSjd7LR_AZ3GtdsVkPnexp8P1ekRCe5PO81d3_eQDLbwjcwujYlLr7ty_U9DZmtyvh61yLY1xKIzdUMTic2JL6geQHBwJxc1L7J9HCWhKrNJMuHR1TL_LcGnxJuSKmEXUu24ogZEiwa6CB_xv3k3Zfic7K-MKjF_0boah8Fq7YA2lgTmaHdN0DVCdH4HwWymRgrQtXmMXdxd2w"/>
+</div>
+<p class="text-label-md font-bold text-primary uppercase mb-1">Wellness</p>
+<h4 class="font-body-lg text-body-lg font-bold group-hover:text-primary transition-colors">5 Simple Habits for Better Sleep Quality</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-1">Improving your recovery starts with a better night's rest. Here's how.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

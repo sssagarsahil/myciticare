@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Welcome to CityCare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#fac67a",
+                    "on-surface": "#111c2d",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary-fixed-dim": "#f1be72",
+                    "tertiary-fixed": "#ffddb0",
+                    "primary": "#074469",
+                    "surface-container-high": "#dee8ff",
+                    "secondary-fixed": "#94f990",
+                    "primary-fixed": "#cde5ff",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "outline": "#72787f",
+                    "inverse-primary": "#9ccbf7",
+                    "primary-fixed-dim": "#9ccbf7",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#316289",
+                    "tertiary": "#5a3b00",
+                    "secondary-container": "#91f78e",
+                    "on-tertiary-fixed-variant": "#614000",
+                    "surface": "#f9f9ff",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#006e1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#a5d4ff",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-primary-fixed": "#001d32",
+                    "background": "#f9f9ff",
+                    "primary-container": "#2a5c82",
+                    "on-secondary-fixed-variant": "#005313",
+                    "surface-container": "#e7eeff",
+                    "on-tertiary-fixed": "#281800",
+                    "outline-variant": "#c1c7cf",
+                    "on-secondary-container": "#00731e",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#76510e",
+                    "on-secondary-fixed": "#002204",
+                    "on-background": "#111c2d",
+                    "inverse-surface": "#263143",
+                    "surface-variant": "#d8e3fb",
+                    "on-surface-variant": "#41474e",
+                    "surface-dim": "#cfdaf2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "md": "24px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "margin-desktop": "80px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "lg": "48px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<header class="bg-surface shadow-sm docked full-width top-0 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-50">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="medical_services">medical_services</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">CityCare</span>
+</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Emergency</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Locations</a>
+</div>
+</header>
+<main class="flex-grow flex flex-col lg:flex-row items-center justify-center max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-xl gap-xl">
+<div class="w-full lg:w-1/2 flex flex-col items-start gap-lg text-left">
+<div class="inline-flex items-center px-4 py-2 bg-primary-fixed text-on-primary-fixed rounded-full mb-base">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="verified">verified</span>
+<span class="font-label-sm text-label-sm">Official City Healthcare Portal</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">
+                Welcome to CityCare
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                Experience seamless healthcare integration across every hospital, clinic, and pharmacy in the city. Your health journey, unified in one secure platform.
+            </p>
+<div class="flex flex-col sm:flex-row gap-md w-full sm:w-auto mt-base">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-xl py-4 rounded-lg shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-base">
+                    Get Started
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-transparent border border-primary text-primary font-label-md text-label-md px-xl py-4 rounded-lg hover:bg-surface-container-low transition-all flex items-center justify-center">
+                    Sign In
+                </button>
+</div>
+<div class="grid grid-cols-2 gap-md mt-lg w-full">
+<div class="flex items-start gap-base">
+<span class="material-symbols-outlined text-secondary" data-icon="health_and_safety">health_and_safety</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Unified Records</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Access history anywhere.</p>
+</div>
+</div>
+<div class="flex items-start gap-base">
+<span class="material-symbols-outlined text-secondary" data-icon="speed">speed</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Instant Booking</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Real-time appointments.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 relative">
+<div class="aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-surface-container">
+<img alt="CityCare Welcome Hero" class="w-full h-full object-cover" data-alt="A professional medical environment showing a diverse team of healthcare providers collaborating in a bright, modern hospital corridor. The lighting is soft and natural, emphasizing a clean and high-tech clinical atmosphere. The color palette features medical blues and pristine whites, conveying trust and sophisticated care. The overall aesthetic is minimalist, serene, and highly professional, representing a premium city-wide healthcare infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxUtNTi-Puyr1vsbjArrpEi9u1GNrB6z7R2EReBJzE6ZakMYu72AaPjVW4WJJFZWYdYWpkN7iwU5x3rnB73IbOd25y0bpMejDM0ADZkOH6F1PjAM-Oq3JH0Ri6pAbuOqISjOAEh08mjfJQkN2YvesN3g5JldSyHbWt-wALTvD5-3I9bZoqitrbgG9xVxUESVlsB0LrdGvJ7ty2emNHGhPFZD-8TEGJa7E_IvDVsXyQla-kRLoKLt3fq_jFixIaZ7qkZhJv_UPmhw"/>
+</div>
+<div class="absolute -bottom-8 -left-8 hidden xl:block bg-surface p-base rounded-xl shadow-lg border border-outline-variant max-w-[240px]">
+<div class="flex items-center gap-base mb-2">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="pulse_alert">pulse_alert</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Vitals Sync</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-xs">Updated 2m ago</p>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[70%]"></div>
+</div>
+</div>
+<div class="absolute top-8 -right-8 hidden xl:block bg-surface p-base rounded-xl shadow-lg border border-outline-variant">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase text-[10px]">Upcoming Appointment</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Dr. Sarah Jenkins</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Today, 2:30 PM</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-lg bg-surface-container-low px-margin-mobile md:px-margin-desktop">
+<div class="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex items-center gap-base opacity-60">
+<span class="material-symbols-outlined text-primary text-label-md" data-icon="medical_services">medical_services</span>
+<span class="text-label-md font-label-md font-bold text-primary">CityCare Portal</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">© 2024 Municipal Health Department. All rights reserved.</p>
+<div class="flex gap-lg">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

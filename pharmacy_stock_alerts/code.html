@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>CityCare Inventory Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-surface": "#273143",
+                "primary-fixed": "#cde5ff",
+                "surface-tint": "#316289",
+                "error": "#ba1a1a",
+                "tertiary-container": "#3b5b78",
+                "tertiary": "#22435f",
+                "outline": "#72787f",
+                "on-primary-fixed": "#001d32",
+                "surface": "#f9f9ff",
+                "secondary-fixed-dim": "#a6c9f8",
+                "tertiary-fixed-dim": "#a9caeb",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#d2e4ff",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed": "#001d32",
+                "on-tertiary-container": "#b2d2f4",
+                "primary": "#074469",
+                "background": "#f9f9ff",
+                "surface-container": "#e8eeff",
+                "surface-container-highest": "#d8e3fb",
+                "on-tertiary-fixed-variant": "#294965",
+                "error-container": "#ffdad6",
+                "inverse-on-surface": "#ecf0ff",
+                "inverse-primary": "#9ccbf7",
+                "on-secondary-fixed": "#001c37",
+                "surface-variant": "#d8e3fb",
+                "on-secondary-fixed-variant": "#234970",
+                "on-primary-fixed-variant": "#124a6f",
+                "on-surface": "#111c2d",
+                "on-secondary-container": "#345881",
+                "on-secondary": "#ffffff",
+                "outline-variant": "#c1c7cf",
+                "surface-container-lowest": "#ffffff",
+                "surface-dim": "#d0daf2",
+                "secondary": "#3d608a",
+                "primary-fixed-dim": "#9ccbf7",
+                "on-primary-container": "#a5d4ff",
+                "surface-container-low": "#f0f3ff",
+                "on-surface-variant": "#41474e",
+                "surface-container-high": "#dfe8ff",
+                "surface-bright": "#f9f9ff",
+                "primary-container": "#2a5c82",
+                "on-background": "#111c2d",
+                "tertiary-fixed": "#cee5ff",
+                "secondary-container": "#abcffe",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "sidebar_width": "260px",
+                "unit": "8px",
+                "gutter": "24px",
+                "container_max_width": "1600px",
+                "margin_desktop": "40px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Inter"],
+                "title-lg": ["Inter"],
+                "label-md": ["Inter"],
+                "headline-md": ["Inter"],
+                "code-md": ["Inter"],
+                "display-lg": ["Inter"],
+                "body-lg": ["Inter"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center px-gutter h-16 z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a clinical pharmacist wearing a white lab coat and a stethoscope. The background is a clean, bright hospital setting with soft blue and white tones. The lighting is bright and airy, reflecting a modern healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBekJ5LykrcDHWPvV7GV24brz8HhIdxHcFdmBaXjaua6ZkCxvd5IaAPle7pndGqArrPB3Ii6iT0g-96xzW6SeRlgNv9pT5S3k-AtySZrUhvi9w4XNAUyhyyyGuAm8N7an2EshkMsOFs2oD-09pqLAJkPp7eX98RR41VxmFgoF7OsMEABfFvZGM3d5yh9EmHFtCuhKOddOHOen8wIOG3uNQpe_caLe5tbZGi49ZJD0KLTo-QJ9Sg6XwpbOqPLK6xaR3B8zesmOph7A"/>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">CityCare</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 mt-16 mb-20 overflow-y-auto px-4 py-6">
+<!-- Header Section -->
+<section class="mb-6">
+<div class="flex items-center justify-between mb-4">
+<h1 class="font-headline-md text-headline-md text-on-surface">Critical Alerts</h1>
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-md text-label-md">4 Urgent</span>
+</div>
+<!-- Bento-style Analytics Card -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-xl">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">Out of Stock</span>
+<span class="font-headline-md text-headline-md text-error">12</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-4 rounded-xl">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">Expiring Soon</span>
+<span class="font-headline-md text-headline-md text-secondary">08</span>
+</div>
+</div>
+</section>
+<!-- Alert List -->
+<section class="space-y-4">
+<!-- Alert Item 1: Low Stock -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional studio product shot of a prescription medicine bottle with a clean pharmaceutical label. The lighting is soft and even against a light gray background, following a corporate medical aesthetic with precise focus on the medication name and branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgrGZpbDWMfepBFpImu0Bo6ZxpqZKV5Lbg_JWZqac6rn1q7LrIMsN1WtPXeiUunI-gVQ_OKF3LtB7ujAEylxCcf5ACmNoi8sq_EWhtLXi4p1YFwQk4H-Ektwvp9rOkvNPUo2af4mwPTwe9f5z46_IK8awNQpAR4DWi8sYnN5E3RLPXKESloKoywYb8b8lFGBgSbFq_Rp46TQMnGjlo4Kgytp4m1I9x7yXpmqTblRp1nGfEvpxI4BaiYu51BT2H-7hOkMV01zf9xQ"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-title-lg text-title-lg text-on-surface">Amoxicillin 500mg</h3>
+<span class="text-error font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">warning</span> Low Stock
+                            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Capsules, 100ct Bottle</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface-variant">Inventory Level</span>
+<span class="text-on-surface">14 / 150 units</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 9%"></div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-label-md text-label-md transition-colors active:scale-95">
+                        Reorder Now
+                    </button>
+<button class="px-3 border border-outline text-on-surface-variant rounded-lg flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Alert Item 2: Expiry -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close-up high-resolution image of an insulin pen device. The lighting is crisp and medical, highlighting the precision dial and needle guard. The color palette consists of sterile whites and clinical blues, presented in a clean and minimal pharmaceutical style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA9pTBAq5Zg3uKeuCx2-sbfkL9o6nTHENY9_pIW6gvb9Hn8v87oqfP7KU7P775wzPeUMHit2VmM3_lopjFaQ_uqBrTsdlv6zUtnEMz7MWKX-EcZZ8_ijCnkk3Q4jvNDN8gg3KCCFkRZ72SQ5YMNwmlZVHskHxLBV-I8kTt0_Fe1DaNhq_SsdGvAe9f4QZ7Qnb7RSkUrtoGKXRa28FEsoY16IUnbUCforFE4AvUu8PsshBwsyjk6ZauLOnqiHlkX1NYxlkOUpHYjQ"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-title-lg text-title-lg text-on-surface">Insulin Glargine</h3>
+<span class="text-secondary font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">event_busy</span> Expiring
+                            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">10ml Vial (Lot #4829)</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface-variant">Expiry Date</span>
+<span class="text-error font-bold">Oct 24, 2023</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-secondary text-on-secondary py-2.5 rounded-lg font-label-md text-label-md transition-colors active:scale-95">
+                        Process Disposal
+                    </button>
+<button class="px-3 border border-outline text-on-surface-variant rounded-lg flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined">inventory</span>
+</button>
+</div>
+</div>
+<!-- Alert Item 3: Critical Low -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A clean top-down photograph of blister packs containing blue and white pills. The lighting is bright and professional, typical of a high-end medical magazine. The setting is sterile with a neutral white background, emphasizing precision and healthcare reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6VHZLpBhqR2EZyJzfmvbzBFLJcLxtTyhEMmWd3NHqsF7-x_7dL98e-cuGye7lgBY1sXCLPURaRzbHjVjTUJwLj6TxXrsOw7Ou0gSoGtDhIYC0AY3C_fP9kQOY5ozx58gIwNuCU06s4Ryxl7mJMMoOM01a9vIbTeYqw5s8bOG21BC7GzX_tpE7UaozGWu0pxAX_v6ThEBW1BMfFtBW9RyH4SLIzmMUZm5nOQjQmn1VW7CyvFcnj8yM2XqluxadCcbbRghryfQJ7Q"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-title-lg text-title-lg text-on-surface">Lisinopril 10mg</h3>
+<span class="text-error font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">priority_high</span> Critical
+                            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Tablets, 500ct Bulk</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface-variant">Inventory Level</span>
+<span class="text-on-surface">2 / 1000 units</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 0.2%"></div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-label-md text-label-md transition-colors active:scale-95">
+                        Urgent Order
+                    </button>
+<button class="px-3 border border-outline text-on-surface-variant rounded-lg flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Floating Action Button: Barcode Scanner -->
+<div class="fixed bottom-24 right-6 z-50">
+<button class="w-14 h-14 bg-primary-container text-on-primary-container rounded-2xl shadow-lg flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px]">barcode_scanner</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline flex justify-around items-center h-20 px-4 pb-safe z-50">
+<!-- Schedule -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container px-5 py-1 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</div>
+<!-- Analytics -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-tertiary-container px-5 py-1 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined mb-1">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</div>
+<!-- Inventory (Active) -->
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-5 py-1 transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</div>
+</nav>
+</body></html>

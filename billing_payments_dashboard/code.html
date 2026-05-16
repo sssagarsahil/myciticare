@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patient Billing &amp; Payments Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#3b5b78",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2a5c82",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed": "#001d32",
+                        "surface-container": "#e8eeff",
+                        "surface-container-high": "#dfe8ff",
+                        "on-surface-variant": "#41474e",
+                        "primary-fixed": "#cde5ff",
+                        "outline-variant": "#c1c7cf",
+                        "secondary-fixed": "#d2e4ff",
+                        "on-surface": "#111c2d",
+                        "on-primary-container": "#a5d4ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d8e3fb",
+                        "inverse-on-surface": "#ecf0ff",
+                        "secondary": "#3d608a",
+                        "on-secondary-fixed-variant": "#234970",
+                        "secondary-fixed-dim": "#a6c9f8",
+                        "surface-bright": "#f9f9ff",
+                        "outline": "#72787f",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#273143",
+                        "on-primary-fixed": "#001d32",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "on-tertiary-container": "#b2d2f4",
+                        "surface-dim": "#d0daf2",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#316289",
+                        "secondary-container": "#abcffe",
+                        "primary": "#074469",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f0f3ff",
+                        "on-secondary-container": "#345881",
+                        "tertiary-fixed-dim": "#a9caeb",
+                        "tertiary": "#22435f",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "inverse-primary": "#9ccbf7",
+                        "on-background": "#111c2d",
+                        "tertiary-fixed": "#cee5ff",
+                        "on-secondary-fixed": "#001c37",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#294965",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .chart-bar { transition: height 0.3s ease; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-[260px] bg-surface-container-low border-r border-outline-variant flex flex-col fixed h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary text-on-primary flex items-center justify-center rounded">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<h1 class="text-headline-md font-bold tracking-tight text-primary">HealthPay</h1>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-body-md font-medium text-on-surface hover:bg-surface-container rounded transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-body-md font-semibold bg-primary-container text-on-primary rounded transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+                    Billing &amp; Payments
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-body-md font-medium text-on-surface hover:bg-surface-container rounded transition-colors" href="#">
+<span class="material-symbols-outlined">shield</span>
+                    Insurance &amp; EOBs
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-body-md font-medium text-on-surface hover:bg-surface-container rounded transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+                    Payment History
+                </a>
+</nav>
+<div class="p-4 border-t border-outline-variant">
+<div class="flex items-center gap-3 px-3 py-2">
+<div class="size-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">AJ</div>
+<div class="overflow-hidden">
+<p class="text-body-md font-semibold truncate">Alex Johnson</p>
+<p class="text-label-md text-outline truncate">ID: 88231</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[260px] p-margin_desktop max-w-container_max_width mx-auto w-full">
+<!-- Header -->
+<header class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-headline-lg font-bold text-on-surface">Billing Overview</h2>
+<p class="text-body-lg text-outline">Manage your healthcare costs and insurance claims in one place.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-4 py-2 border border-outline text-on-surface rounded-lg font-medium flex items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">download</span>
+                        Download Statement
+                    </button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-semibold flex items-center gap-2 shadow-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">payment</span>
+                        Make a Payment
+                    </button>
+</div>
+</header>
+<!-- Top Cards Grid -->
+<div class="grid grid-cols-12 gap-gutter mb-8">
+<!-- Current Balance Card -->
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-primary-container/10 text-primary rounded">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</span>
+<span class="text-label-md font-bold text-error bg-error-container px-2 py-1 rounded">DUE OCT 15</span>
+</div>
+<p class="text-body-md font-medium text-outline">Total Current Balance</p>
+<h3 class="text-display-lg font-bold text-on-surface">$1,240.50</h3>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant flex items-center justify-between">
+<p class="text-label-md text-outline">Includes 3 pending invoices</p>
+<a class="text-label-md font-bold text-primary hover:underline" href="#">View Details</a>
+</div>
+</div>
+<!-- Insurance EOB Summary Card -->
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="p-2 bg-secondary-container/20 text-secondary rounded">
+<span class="material-symbols-outlined">verified_user</span>
+</span>
+<h3 class="text-title-lg font-bold text-on-surface">Insurance Coverage</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<p class="text-body-md text-on-surface">Deductible Met</p>
+<p class="text-body-md font-semibold">$2,450 / $3,000</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 81%"></div>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-body-md text-on-surface">Out-of-pocket Limit</p>
+<p class="text-body-md font-semibold">$3,120 / $6,000</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-outline h-2 rounded-full" style="width: 52%"></div>
+</div>
+</div>
+</div>
+<!-- Payment History Mini Chart -->
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-title-lg font-bold text-on-surface">Spending Trend</h3>
+<span class="text-label-md font-medium text-outline">Last 6 Months</span>
+</div>
+<div class="flex-1 flex items-end justify-between gap-2 pt-2">
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary-container/20 rounded-t-sm chart-bar" style="height: 40px"></div>
+<span class="text-[10px] text-outline font-bold">MAY</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary-container/20 rounded-t-sm chart-bar" style="height: 60px"></div>
+<span class="text-[10px] text-outline font-bold">JUN</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary-container/20 rounded-t-sm chart-bar" style="height: 35px"></div>
+<span class="text-[10px] text-outline font-bold">JUL</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary-container/20 rounded-t-sm chart-bar" style="height: 80px"></div>
+<span class="text-[10px] text-outline font-bold">AUG</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary rounded-t-sm chart-bar" style="height: 55px"></div>
+<span class="text-[10px] text-outline font-bold">SEP</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-outline-variant rounded-t-sm chart-bar" style="height: 20px"></div>
+<span class="text-[10px] text-outline font-bold">OCT</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Recent Invoices Section -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden mb-8">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="text-headline-md font-bold text-on-surface">Recent Invoices</h3>
+<div class="flex gap-2">
+<select class="text-body-md border-outline-variant rounded-lg bg-surface-container-low px-3 py-1 focus:ring-primary">
+<option>All Statuses</option>
+<option>Paid</option>
+<option>Pending</option>
+<option>Overdue</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Provider / Service</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Invoice #</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Amount</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-label-md text-outline uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 text-body-md font-medium">Sep 28, 2024</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold">City General Hospital</span>
+<span class="text-label-md text-outline">Lab Work - Blood Panel</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-outline">#INV-88210</td>
+<td class="px-6 py-4 text-body-md font-bold">$450.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-error">
+<span class="size-1.5 rounded-full bg-error"></span> Overdue
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded text-label-md font-bold hover:brightness-110 transition-all">Pay Now</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 text-body-md font-medium">Sep 15, 2024</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold">Dr. Sarah Miller, Cardiology</span>
+<span class="text-label-md text-outline">Routine Consultation</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-outline">#INV-88195</td>
+<td class="px-6 py-4 text-body-md font-bold">$120.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container-high text-on-surface-variant">
+<span class="size-1.5 rounded-full bg-outline"></span> Processing
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:bg-primary/5 px-4 py-1.5 rounded text-label-md font-bold transition-all">View Invoice</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 text-body-md font-medium">Aug 22, 2024</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-body-md font-bold">Main St. Pharmacy</span>
+<span class="text-label-md text-outline">Prescription Refill (x2)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-body-md text-outline">#INV-87901</td>
+<td class="px-6 py-4 text-body-md font-bold">$45.50</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-800">
+<span class="size-1.5 rounded-full bg-green-600"></span> Paid
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-outline hover:text-on-surface px-2 py-1.5 rounded transition-all">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low border-t border-outline-variant flex justify-center">
+<button class="text-label-md font-bold text-primary uppercase tracking-widest hover:underline">View All Billing History</button>
+</div>
+</section>
+<!-- Lower Section: Support & Resources -->
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-8 bg-primary-container text-on-primary rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10 max-w-md">
+<h4 class="text-headline-md font-bold mb-2">Need Financial Assistance?</h4>
+<p class="text-body-md mb-6 opacity-90">We offer flexible payment plans and medical hardship programs to help manage your healthcare expenses. Contact our billing specialists to discuss your options.</p>
+<div class="flex gap-4">
+<button class="bg-surface-container-lowest text-primary px-6 py-2 rounded font-bold hover:bg-white transition-colors">Apply for Plan</button>
+<button class="border border-white/50 px-6 py-2 rounded font-bold hover:bg-white/10 transition-colors">Contact Support</button>
+</div>
+</div>
+<!-- Abstract Background Decoration -->
+<div class="absolute -right-16 -bottom-16 size-64 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+<div class="col-span-4 space-y-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<h4 class="text-title-lg font-bold mb-4">Quick Links</h4>
+<ul class="space-y-3">
+<li>
+<a class="flex items-center justify-between text-body-md text-on-surface hover:text-primary group" href="#">
+<span>Update Insurance Info</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between text-body-md text-on-surface hover:text-primary group" href="#">
+<span>Tax Documents (1095-B)</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between text-body-md text-on-surface hover:text-primary group" href="#">
+<span>Manage Autopay</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Image placeholder section for visual flair -->
+<div class="mt-12 rounded-xl overflow-hidden h-[200px] relative">
+<img alt="Hospital Interior" class="w-full h-full object-cover grayscale brightness-50" data-alt="A clean, minimalist hospital corridor with soft morning light filtering through large windows. The scene is captured in a high-key architectural photography style, emphasizing professional clinical order and calm. The color palette is composed of cool blues and pristine whites, mirroring the trust-focused healthcare UI. The mood is serene, modern, and high-tech, evoking a sense of reliability and expert care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbeSfs1dLvgIpXKKhgkZvUAf2YJhGB8dlNl9yNKcBBRM4sP6gz4UDmqLD2bzGCvdHXzmqeeLgTVrNa8hMS7iX0WofOEQGHnOLy0fZaG6IGCv97gCST_Co3B8-p8NcDOcNB22OB4v_qEjiycp0hPsMhk1HustlgtVpOSyZT9C8EeGhF_5RGH_9LymycGKB-8wiev1BsC9ymQEcznUD21U6p3OkO-WHK1dxVKACTgGi8Loum0QWgxfYq_da6tpaCCq1dhEduPXJmgQ"/>
+<div class="absolute inset-0 flex items-center px-12">
+<p class="text-headline-lg font-bold text-white max-w-xl">Transparent healthcare costs, powered by HealthPay.</p>
+</div>
+</div>
+</main>
+</div>
+</body></html>

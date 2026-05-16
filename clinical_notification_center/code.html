@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Center - Clinical Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for clinical data density */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d8e3fb;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#2a5c82",
+                        "on-secondary-fixed": "#001c37",
+                        "on-error": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-container": "#b2d2f4",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#294965",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#abcffe",
+                        "surface-dim": "#d0daf2",
+                        "on-primary-fixed": "#001d32",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-high": "#dfe8ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#a5d4ff",
+                        "tertiary-fixed": "#cee5ff",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed-dim": "#a9caeb",
+                        "surface-container": "#e8eeff",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "secondary-fixed-dim": "#a6c9f8",
+                        "surface-variant": "#d8e3fb",
+                        "tertiary-container": "#3b5b78",
+                        "on-secondary-fixed-variant": "#234970",
+                        "on-secondary-container": "#345881",
+                        "primary-fixed": "#cde5ff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d2e4ff",
+                        "inverse-surface": "#273143",
+                        "secondary": "#3d608a",
+                        "outline": "#72787f",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#9ccbf7",
+                        "primary": "#074469",
+                        "error": "#ba1a1a",
+                        "on-background": "#111c2d",
+                        "tertiary": "#22435f",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "surface-tint": "#316289",
+                        "on-tertiary-fixed": "#001d32",
+                        "outline-variant": "#c1c7cf",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-surface-variant": "#41474e",
+                        "inverse-on-surface": "#ecf0ff",
+                        "on-surface": "#111c2d",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container_max_width": "1600px",
+                        "sidebar_width": "260px",
+                        "margin_desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "code-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Persistent Sidebar -->
+<aside class="fixed h-full w-[260px] left-0 top-0 border-r border-outline-variant bg-surface-container flex flex-col py-unit">
+<div class="px-gutter mb-8 pt-4">
+<h1 class="font-headline-md text-headline-md font-semibold text-primary">Clinical Portal</h1>
+<p class="text-on-surface-variant font-body-md text-body-md">General Hospital</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="group">group</span>
+                My Patients
+            </a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="calendar_today">calendar_today</span>
+                Appointments
+            </a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="description">description</span>
+                Clinical Notes
+            </a>
+<a class="flex items-center px-4 py-3 bg-primary-container text-on-primary-container font-semibold rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="notifications">notifications</span>
+                Notifications
+            </a>
+<a class="flex items-center px-4 py-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-gutter py-4 border-t border-outline-variant">
+<div class="flex items-center space-x-3">
+<img alt="Provider profile picture" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a male physician wearing a white clinical coat and a stethoscope around his neck. He is standing against a clean, soft-lit hospital corridor backdrop that suggests a sterile and professional medical environment. The lighting is bright and modern, emphasizing trust and clinical expertise in a corporate healthcare setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgvI6HnbbU0ohoAxy7wd3MvunN5MeP7pED5pGfVTVWZJ0Lsgkx-y1xBsEt7pYeL-ukN3z87kM5I48EwyYDl9uQSbHwj7Fz9CYtyFbHcSccGC4QdaBktRcQ9K7sL5T8cgmySza-Q-WXIIhLBhYyL-O_9h2eguVihSn-PhbFD8dEsHzLtx5KmxJcDODeGLd1I2P-ADCHPo6ucdn58hEKNdZbIFNAps2JiryeK62yj2H-qSS2jwo0V4nl8Q5hj2BEo3WkjY1tuLbxUw"/>
+<div>
+<p class="font-body-md text-body-md font-bold">Dr. Smith</p>
+<p class="text-on-surface-variant text-xs">Medical Oncology</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-background border-b border-outline-variant flex justify-between items-center px-margin_desktop z-10">
+<div class="flex items-center space-x-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg w-96 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Search patient or notification..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen bg-background">
+<div class="max-w-container_max_width mx-auto p-margin_desktop">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Notification Center</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage clinical alerts, lab results, and team communications.</p>
+</div>
+<div class="flex space-x-3">
+<button class="flex items-center px-4 py-2 border border-outline text-primary font-label-md text-label-md rounded-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined mr-2 text-sm" data-icon="done_all">done_all</span>
+                        Mark All as Read
+                    </button>
+<button class="flex items-center px-4 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:brightness-95 transition-all">
+<span class="material-symbols-outlined mr-2 text-sm" data-icon="filter_list">filter_list</span>
+                        Configure Filters
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Notifications -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Summary Widgets -->
+<div class="col-span-12 md:col-span-4 lg:col-span-3 space-y-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant p-gutter rounded-xl">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-4 flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary" data-icon="analytics">analytics</span>
+                            URGENCY OVERVIEW
+                        </h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="flex items-center text-body-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-error mr-2"></span>
+                                    Critical Alerts
+                                </span>
+<span class="font-bold text-error">03</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="flex items-center text-body-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary mr-2"></span>
+                                    Urgent Updates
+                                </span>
+<span class="font-bold text-secondary">08</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="flex items-center text-body-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-outline mr-2"></span>
+                                    Informational
+                                </span>
+<span class="font-bold text-on-surface-variant">14</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container text-on-primary-container p-gutter rounded-xl shadow-sm">
+<h3 class="font-label-md text-label-md opacity-80 mb-2">NEXT ACTION</h3>
+<p class="font-title-lg text-title-lg mb-4">Urgent: Lab Review Required</p>
+<p class="font-body-md text-body-md opacity-90 mb-6">Patient: Elena Rodriguez (ID: 4421). Potassium levels reported at critical threshold.</p>
+<button class="w-full bg-white text-primary font-label-md text-label-md py-3 rounded-lg shadow-md hover:bg-surface-bright transition-colors">
+                            Launch Lab Viewer
+                        </button>
+</div>
+<div class="relative overflow-hidden bg-surface-container border border-outline-variant rounded-xl h-48">
+<img alt="Hospital visualization" class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="An abstract, high-key photograph of a modern medical research laboratory with sleek glass surfaces and blue-toned ambient lighting. The composition is minimalist and clinical, using a soft focus to create a sense of advanced medical technology and serene professional rigor, dominated by a palette of cool whites and corporate blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdWFYonpE2mCQf06gEJoqz8v_G-CWTb9u4moFTRqH0kY1MuVR2T7A9iV81R7lCAgyNSFs8vzbMGvO9htSwPN835sI5QSc7t1kddREzjcpZydqfdDp3nAthPdep-xr_0PkTpVLjum2l78-kCW-74mucgwQJRrNmBO4mRjXXUpgzhrMB6E-X3odShddSkZghMW4OWJgFzlSd3POj6yZ76TdgHDXMXr9WxU9E8g6jBHYQNIkzVw4eiq88ErY-gmOuZIXwja9uVsZg_g"/>
+<div class="relative z-10 p-6">
+<h3 class="font-label-md text-label-md text-primary mb-1">TEAM AVAILABILITY</h3>
+<p class="text-xs text-on-surface-variant mb-4">On-call surgical team</p>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-gray-200"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-gray-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-gray-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary text-on-primary text-[10px] flex items-center justify-center font-bold">+4</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Feed -->
+<div class="col-span-12 md:col-span-8 lg:col-span-9 space-y-4">
+<!-- Filters/Tabs -->
+<div class="flex border-b border-outline-variant space-x-8 mb-6">
+<button class="pb-4 text-primary border-b-2 border-primary font-semibold text-body-md">All Notifications</button>
+<button class="pb-4 text-on-surface-variant hover:text-primary transition-colors text-body-md">Critical</button>
+<button class="pb-4 text-on-surface-variant hover:text-primary transition-colors text-body-md">Lab Results</button>
+<button class="pb-4 text-on-surface-variant hover:text-primary transition-colors text-body-md">Secure Messages</button>
+</div>
+<!-- Notification Item: Critical -->
+<div class="group bg-surface-container-lowest border-l-4 border-l-error border border-outline-variant p-5 flex flex-col md:flex-row items-start md:items-center justify-between rounded-r-lg transition-all hover:shadow-md">
+<div class="flex items-start space-x-4 mb-4 md:mb-0">
+<div class="mt-1 w-10 h-10 bg-error-container text-on-error-container rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="error" data-weight="fill">error</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded font-label-md text-[10px] uppercase tracking-wider">Critical</span>
+<span class="text-on-surface-variant text-xs">2 minutes ago</span>
+<span class="text-on-surface-variant text-xs">• Patient ID: 4421</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">STAT: Abnormal Potassium Result</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Elena Rodriguez (Room 402-B) has a reported potassium level of 6.2 mEq/L. Immediate intervention required.</p>
+</div>
+</div>
+<div class="flex space-x-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:brightness-110">Acknowledge</button>
+<button class="flex-1 md:flex-none px-4 py-2 border border-outline text-primary font-label-md text-label-md rounded-lg hover:bg-surface-variant">Open Record</button>
+</div>
+</div>
+<!-- Notification Item: Urgent -->
+<div class="group bg-surface-container-lowest border-l-4 border-l-secondary border border-outline-variant p-5 flex flex-col md:flex-row items-start md:items-center justify-between rounded-r-lg transition-all hover:shadow-md">
+<div class="flex items-start space-x-4 mb-4 md:mb-0">
+<div class="mt-1 w-10 h-10 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="notification_important">notification_important</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-md text-[10px] uppercase tracking-wider">Urgent</span>
+<span class="text-on-surface-variant text-xs">14 minutes ago</span>
+<span class="text-on-surface-variant text-xs">• Clinical Staff</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Secure Message: Consultation Request</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Dr. Chen (Internal Med) requested an oncology consultation for Mr. James White (ID: 9920) before scheduled discharge.</p>
+</div>
+</div>
+<div class="flex space-x-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 bg-secondary text-on-secondary font-label-md text-label-md rounded-lg hover:brightness-110">Reply</button>
+<button class="flex-1 md:flex-none px-4 py-2 border border-outline text-on-surface-variant font-label-md text-label-md rounded-lg hover:bg-surface-variant">Mark Read</button>
+</div>
+</div>
+<!-- Notification Item: Info -->
+<div class="group bg-surface-container-lowest border-l-4 border-l-outline-variant border border-outline-variant p-5 flex flex-col md:flex-row items-start md:items-center justify-between rounded-r-lg opacity-80 hover:opacity-100 transition-all hover:shadow-md">
+<div class="flex items-start space-x-4 mb-4 md:mb-0">
+<div class="mt-1 w-10 h-10 bg-surface-container text-on-surface-variant rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded font-label-md text-[10px] uppercase tracking-wider">Information</span>
+<span class="text-on-surface-variant text-xs">1 hour ago</span>
+<span class="text-on-surface-variant text-xs">• System Admin</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Maintenance Notice: EMR Sync</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Scheduled database synchronization will occur tonight at 02:00 AM. Access may be intermittently slow for 15 minutes.</p>
+</div>
+</div>
+<div class="flex space-x-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 border border-outline text-on-surface-variant font-label-md text-label-md rounded-lg hover:bg-surface-variant">Dismiss</button>
+</div>
+</div>
+<!-- Notification Item: Lab Results -->
+<div class="group bg-surface-container-lowest border-l-4 border-l-secondary border border-outline-variant p-5 flex flex-col md:flex-row items-start md:items-center justify-between rounded-r-lg transition-all hover:shadow-md">
+<div class="flex items-start space-x-4 mb-4 md:mb-0">
+<div class="mt-1 w-10 h-10 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+</div>
+<div>
+<div class="flex items-center space-x-3 mb-1">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-label-md text-[10px] uppercase tracking-wider">Urgent</span>
+<span class="text-on-surface-variant text-xs">3 hours ago</span>
+<span class="text-on-surface-variant text-xs">• Laboratory Services</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-1">Final Pathology Report Ready</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">The final pathology report for patient Mrs. Sarah Miller (Biopsy B-4021) has been released and uploaded to the chart.</p>
+</div>
+</div>
+<div class="flex space-x-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 bg-secondary text-on-secondary font-label-md text-label-md rounded-lg hover:brightness-110">Review Results</button>
+<button class="flex-1 md:flex-none px-4 py-2 border border-outline text-on-surface-variant font-label-md text-label-md rounded-lg hover:bg-surface-variant">Mark Read</button>
+</div>
+</div>
+<!-- Load More -->
+<div class="pt-8 flex justify-center">
+<button class="flex items-center text-primary font-semibold text-body-md hover:underline">
+                            Load historical notifications (older than 24h)
+                            <span class="material-symbols-outlined ml-1" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Overlay for Quick Action (Hidden on settings/details but shown on Dashboard/Center) -->
+<div class="fixed bottom-10 right-10 flex flex-col items-end space-y-4">
+<div class="bg-surface-container-highest border border-outline-variant p-4 rounded-xl shadow-xl w-64 mb-4 hidden lg:block">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-primary uppercase">Quick Message</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-sm" data-icon="close">close</span>
+</div>
+<textarea class="w-full text-xs p-2 bg-surface border border-outline-variant rounded mb-2 h-20 outline-none focus:ring-1 focus:ring-primary" placeholder="Direct message to nurse station..."></textarea>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-2 rounded">Send Message</button>
+</div>
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="chat">chat</span>
+</button>
+</div>
+</body></html>

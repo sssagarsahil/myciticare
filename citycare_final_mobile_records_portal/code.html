@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#2a5c82",
+                    "on-tertiary-container": "#b2d2f4",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#9ccbf7",
+                    "outline": "#72787f",
+                    "tertiary-container": "#3b5b78",
+                    "surface-tint": "#316289",
+                    "tertiary": "#22435f",
+                    "on-background": "#111c2d",
+                    "on-tertiary-fixed-variant": "#294965",
+                    "primary-fixed": "#cde5ff",
+                    "on-secondary-container": "#345881",
+                    "on-surface": "#111c2d",
+                    "secondary-fixed": "#d2e4ff",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-dim": "#d0daf2",
+                    "tertiary-fixed-dim": "#a9caeb",
+                    "tertiary-fixed": "#cee5ff",
+                    "surface-container-highest": "#d8e3fb",
+                    "primary": "#074469",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#abcffe",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "secondary": "#3d608a",
+                    "on-secondary-fixed": "#001c37",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#dfe8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9ff",
+                    "inverse-on-surface": "#ecf0ff",
+                    "on-tertiary-fixed": "#001d32",
+                    "outline-variant": "#c1c7cf",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#41474e",
+                    "surface-variant": "#d8e3fb",
+                    "surface-container": "#e8eeff",
+                    "on-primary-container": "#a5d4ff",
+                    "inverse-surface": "#273143",
+                    "inverse-primary": "#9ccbf7",
+                    "on-secondary-fixed-variant": "#234970",
+                    "on-primary-fixed-variant": "#124a6f",
+                    "surface-bright": "#f9f9ff",
+                    "secondary-fixed-dim": "#a6c9f8",
+                    "on-primary-fixed": "#001d32"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sidebar_width": "260px",
+                    "margin_desktop": "40px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "container_max_width": "1600px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "title-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "code-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { border-bottom: 2px solid #074469; color: #074469; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- Top AppBar Component -->
+<header class="bg-surface dark:bg-on-background shadow-[0_4px_20px_rgba(30,41,59,0.05)] w-full top-0 sticky z-50">
+<div class="flex items-center justify-between px-4 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="local_hospital">local_hospital</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">CityCare</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline" data-icon="notifications">notifications</span>
+</div>
+</div>
+</header>
+<main class="px-4 py-6 mb-24 max-w-lg mx-auto">
+<!-- Header & Security Badge -->
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Medical Records</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Patient: Alex Johnson</p>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-full px-3 py-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-md text-label-md text-primary">HIPAA Secured</span>
+</div>
+</div>
+<!-- Search & Filter Area -->
+<div class="relative mb-6">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-xl bg-surface-container-lowest font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Search your records..." type="text"/>
+</div>
+<!-- Tabs Interface -->
+<div class="flex border-b border-outline-variant mb-6 overflow-x-auto no-scrollbar">
+<button class="px-4 py-2 font-label-md text-label-md text-on-surface-variant whitespace-nowrap tab-active">Lab Results</button>
+<button class="px-4 py-2 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Imaging</button>
+<button class="px-4 py-2 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Immunizations</button>
+</div>
+<!-- Lab Results Section (Active) -->
+<div class="space-y-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-title-lg text-title-lg text-on-surface">Recent Activity</h3>
+<button class="font-label-md text-label-md text-primary">View All</button>
+</div>
+<!-- Record Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex gap-4 hover:shadow-sm transition-shadow">
+<div class="bg-primary-container/10 p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined text-primary" data-icon="biotech">biotech</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Comprehensive Metabolic Panel</h4>
+<span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Normal</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Diagnostic Lab Services • Oct 24, 2023</p>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 font-label-md text-label-md text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+                            View Detail
+                        </button>
+<button class="flex items-center gap-1.5 font-label-md text-label-md text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                            PDF
+                        </button>
+</div>
+</div>
+</div>
+<!-- Record Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex gap-4 hover:shadow-sm transition-shadow">
+<div class="bg-secondary-container/10 p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined text-secondary" data-icon="vaccines">vaccines</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Influenza Vaccination</h4>
+<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Completed</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">CityCare Urgent Care • Sep 12, 2023</p>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 font-label-md text-label-md text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+                            Proof of Vax
+                        </button>
+</div>
+</div>
+</div>
+<!-- Record Card 3 (Imaging Placeholder) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex gap-4 hover:shadow-sm transition-shadow">
+<div class="bg-tertiary-container/10 p-3 rounded-lg h-fit">
+<span class="material-symbols-outlined text-tertiary" data-icon="radiology">radiology</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Chest X-Ray (PA and Lateral)</h4>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Pending Review</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Northside Imaging Center • Nov 02, 2023</p>
+<div class="w-full bg-surface-container-low h-32 rounded-lg overflow-hidden mb-3 border border-outline-variant">
+<img alt="Medical X-ray" class="w-full h-full object-cover opacity-50 grayscale" data-alt="A clinical radiographic chest X-ray image displayed on a high-resolution diagnostic monitor in a dark medical office. The image shows the skeletal structure of the ribs and lungs in clear detail, maintaining a professional medical aesthetic. The scene is illuminated by the soft blue glow of the computer screen, emphasizing a sterile and precise healthcare environment with a corporate, minimal UI design influence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByn9E3nLiU2xjAZFGG9D9kfpQYvmP5oKQR_GYsQL3TaBNj_vVNzNTmJiKdUQ0C--EA3U-TZxj91X2c8Ut9UOB-2EMgkvqzz0PKf8VtrokaeuSmT7YE_14B4Kn1NUotuLaDqAsiaipO7_2Rf5PhH0-173xxuVq1NwYa6xltUqFwohPBylpTZNz7ePO3C3FP836zAzHOBu5IG3N40vswIJpCB6PHZnQfQ9a3u6EehPh0RKeEspiOwitjKsw-bLzKVuFn8O2gREKQKg"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Security Notice Footer -->
+<div class="mt-8 p-4 bg-surface-container-low rounded-xl border-l-4 border-primary">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold">Your Privacy is Protected</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-tight mt-1">All records are encrypted end-to-end. Access to this data is restricted to authorized medical personnel and you.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar Component -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface dark:bg-on-background shadow-[0_-4px_20px_rgba(30,41,59,0.05)] z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Directory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-label-sm text-label-sm">Appointments</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder_shared" style="font-variation-settings: 'FILL' 1;">folder_shared</span>
+<span class="font-label-sm text-label-sm">Records</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

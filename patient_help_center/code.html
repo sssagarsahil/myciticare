@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#ecf0ff",
+                        "surface-variant": "#d8e3fb",
+                        "secondary-fixed": "#d2e4ff",
+                        "on-surface": "#111c2d",
+                        "on-primary-container": "#a5d4ff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c1c7cf",
+                        "on-primary-fixed": "#001d32",
+                        "inverse-surface": "#273143",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "outline": "#72787f",
+                        "secondary-fixed-dim": "#a6c9f8",
+                        "on-secondary-fixed-variant": "#234970",
+                        "secondary": "#3d608a",
+                        "on-tertiary-fixed": "#001d32",
+                        "background": "#f9f9ff",
+                        "primary-container": "#2a5c82",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#3b5b78",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#cde5ff",
+                        "on-surface-variant": "#41474e",
+                        "surface-container-high": "#dfe8ff",
+                        "surface-container": "#e8eeff",
+                        "inverse-primary": "#9ccbf7",
+                        "tertiary": "#22435f",
+                        "on-primary-fixed-variant": "#124a6f",
+                        "tertiary-fixed-dim": "#a9caeb",
+                        "surface-container-low": "#f0f3ff",
+                        "on-secondary-container": "#345881",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#294965",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001c37",
+                        "tertiary-fixed": "#cee5ff",
+                        "on-background": "#111c2d",
+                        "secondary-container": "#abcffe",
+                        "primary": "#074469",
+                        "surface-tint": "#316289",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d0daf2",
+                        "primary-fixed-dim": "#9ccbf7",
+                        "on-tertiary-container": "#b2d2f4",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sidebar_width": "260px",
+                        "container_max_width": "1600px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin_desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "code-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Persistent SideNavBar -->
+<aside class="w-[260px] h-screen fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col py-margin_desktop">
+<div class="px-gutter mb-10">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CityCare</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Clinical Nexus</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="px-4 py-3 mx-2 flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors cursor-pointer rounded-lg">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</div>
+<div class="px-4 py-3 mx-2 flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors cursor-pointer rounded-lg">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md text-body-md">Patients</span>
+</div>
+<div class="px-4 py-3 mx-2 flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors cursor-pointer rounded-lg">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md text-body-md">Appointments</span>
+</div>
+<div class="px-4 py-3 mx-2 flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors cursor-pointer rounded-lg">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-body-md text-body-md">Clinical Notes</span>
+</div>
+<div class="px-4 py-3 mx-2 flex items-center gap-3 bg-secondary-container text-on-secondary-container font-bold border-r-4 border-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span class="font-body-md text-body-md">Help Center</span>
+</div>
+<div class="px-4 py-3 mx-2 flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors cursor-pointer rounded-lg">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</div>
+</nav>
+<div class="px-gutter mt-auto flex items-center gap-3">
+<img alt="User avatar" class="w-10 h-10 rounded-full bg-surface-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnscSNjj_Vr0pFPLsb7kOUetX-kIW_5uey40ctTmqfgSOFGs41VF6raYJ0eoKcg0juM-xvBwlP8hIMV1RHIkKZb-bKmqbMh67nYM2hABnEYFM1FjNunxX0jr6oJi6WHmo-ofgAYKixcrGG9jg9VEzXBtAdmhL9DS_m_l96_ik2NgJi5rfD1GENF1VmH-Y7d2FBtXptGjVq052MsfD6lRx8_UoncC_h84je9XXXgu4dsZAc8_ekwRXbHxSP_7HVegzmejZFgIUSvA"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold">Dr. Sarah Chen</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Clinical Admin</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopAppBar -->
+<header class="h-16 flex items-center justify-between px-gutter w-full bg-surface border-b border-outline-variant sticky top-0 z-10">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full focus:ring-2 focus:ring-primary focus:outline-none font-body-md text-body-md" placeholder="Search patient resources, FAQ, or articles..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-all duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="apps">apps</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-margin_desktop max-w-container_max_width mx-auto">
+<!-- Hero Search Section -->
+<section class="mb-12">
+<div class="bg-primary-container text-on-primary p-12 rounded-xl relative overflow-hidden">
+<!-- Background Illustration Style -->
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[200px]" data-icon="medical_information">medical_information</span>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg mb-4">How can we help you today?</h2>
+<p class="font-body-lg text-body-lg mb-8 opacity-90">Find answers to billing, scheduling, and medical records questions instantly.</p>
+<div class="flex flex-wrap gap-3">
+<span class="font-label-md text-label-md py-1 px-3 bg-white/20 rounded-full border border-white/30 backdrop-blur-sm">Popular:</span>
+<button class="font-label-md text-label-md py-1 px-3 bg-white text-primary rounded-full hover:bg-surface-bright transition-colors">How to pay my bill</button>
+<button class="font-label-md text-label-md py-1 px-3 bg-white text-primary rounded-full hover:bg-surface-bright transition-colors">Find a specialist</button>
+<button class="font-label-md text-label-md py-1 px-3 bg-white text-primary rounded-full hover:bg-surface-bright transition-colors">Accessing records</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Browse by Category</h3>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:underline">
+                        View All Categories <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="bento-grid">
+<!-- Billing Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:border-primary transition-all group cursor-pointer">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<h4 class="font-title-lg text-title-lg mb-2">Billing &amp; Payments</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">View your statements, set up payment plans, and manage insurance information.</p>
+<ul class="space-y-2">
+<li class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span> Payment methods
+                            </li>
+<li class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span> Insurance claims FAQ
+                            </li>
+</ul>
+</div>
+<!-- Appointments Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:border-primary transition-all group cursor-pointer">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+</div>
+<h4 class="font-title-lg text-title-lg mb-2">Scheduling</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Book new appointments, reschedule existing visits, or find urgent care locations.</p>
+<ul class="space-y-2">
+<li class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span> Virtual visits guide
+                            </li>
+<li class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span> Preparation for surgery
+                            </li>
+</ul>
+</div>
+<!-- Records Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:border-primary transition-all group cursor-pointer">
+<div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+</div>
+<h4 class="font-title-lg text-title-lg mb-2">Medical Records</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Request lab results, download immunization history, and manage proxies.</p>
+<ul class="space-y-2">
+<li class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span> Lab results timing
+                            </li>
+<li class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span> Sharing with specialists
+                            </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Support & Secondary Content -->
+<section class="bento-grid">
+<!-- Contact Support Card -->
+<div class="col-span-12 md:col-span-8 bg-white border border-outline-variant rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center shadow-sm">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Need direct assistance?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Our care coordinators are standing by to help you navigate your healthcare journey.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant flex items-center gap-4">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold">Live Chat</p>
+<p class="font-code-md text-code-md text-primary">Est. wait: 2 mins</p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant flex items-center gap-4">
+<div class="w-10 h-10 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="call">call</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold">24/7 Care Hotline</p>
+<p class="font-code-md text-code-md text-on-surface-variant">1-800-CITY-CARE</p>
+</div>
+</div>
+</div>
+<button class="mt-8 px-6 py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors">Start Support Request</button>
+</div>
+<div class="w-full md:w-64 h-64 rounded-xl overflow-hidden shadow-md shrink-0">
+<img alt="Friendly healthcare support professional" class="w-full h-full object-cover" data-alt="A professional and friendly clinical care coordinator wearing a modern headset and a soft navy blue scrub top, smiling warmly in a bright, minimalist medical office setting. The background features soft bokeh with clinical equipment and natural light, creating a sense of reliability and compassion. The color palette is clean with whites and professional blues, reflecting a high-end corporate medical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaT4Qoufsh8gqdlzRv5Ur1SV1BWbpysKMj6hI4kUfC5i7Q7TrbiTmo6aFtcBHMW3sxa7oVqBVguKbNOrPhlhvYdjXdztVQplUw1QXHjTi8CYs07kgkv5HwQT4-cLODsaBqcCSupLe58xn8qyhfDIoJU8erhC8sZ9x3KwfLr1rjx07Kw4PPDlF8fnZQcCId4niCQNYwoQeeyAjCBuJm_xp2rWwa6lAhLbSid5w3ZINQpn9gGep1WbdQxB9Dwsp0EAJciDK6iIIbzw"/>
+</div>
+</div>
+<!-- Featured Article/Status Chip Column -->
+<div class="col-span-12 md:col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-highest p-6 rounded-xl border border-outline-variant flex-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[12px] mr-1" data-icon="info">info</span> ALERTS
+                            </span>
+</div>
+<h4 class="font-title-lg text-title-lg text-on-surface mb-2">Flu Season Updates</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Vaccine clinics are now open at all CityCare locations. No appointment necessary for registered patients.</p>
+<a class="text-primary font-label-md text-label-md font-bold hover:underline" href="#">Read vaccination guide</a>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant">
+<h4 class="font-label-md text-label-md text-outline uppercase mb-4 tracking-widest">Helpful Links</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="description">description</span>
+<div>
+<p class="font-body-md text-body-md font-bold">Privacy Policy</p>
+<p class="font-label-md text-label-md text-on-surface-variant">How we protect your data</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="language">language</span>
+<div>
+<p class="font-body-md text-body-md font-bold">Language Services</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Translation and accessibility</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom FAQ Section -->
+<section class="mt-12 py-12 border-t border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-surface text-center mb-10">Frequently Asked Questions</h3>
+<div class="max-w-4xl mx-auto space-y-4">
+<details class="group bg-surface-container-low rounded-xl border border-outline-variant p-4">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-body-lg text-body-lg font-bold">How do I access my laboratory test results?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant mt-4">
+                            Log in to your Patient Portal dashboard and navigate to the 'Reports' section. Results are typically released 24-48 hours after processing, though some specialized tests may take longer. You will receive an automated notification when your results are ready for review.
+                        </div>
+</details>
+<details class="group bg-surface-container-low rounded-xl border border-outline-variant p-4">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-body-lg text-body-lg font-bold">Can I pay my medical bill through the mobile app?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant mt-4">
+                            Yes, the CityCare mobile app supports secure payments via credit card, HSA/FSA cards, and Apple/Google Pay. You can also view your full billing history and download itemized statements for insurance reimbursement.
+                        </div>
+</details>
+<details class="group bg-surface-container-low rounded-xl border border-outline-variant p-4">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="font-body-lg text-body-lg font-bold">What is the process for requesting a prescription refill?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant mt-4">
+                            You can request refills directly through the 'Pharmacy' tab in your portal. Please allow 2 business days for your provider to review and approve the request. For urgent refills, please contact your pharmacy directly as they can often send a priority request to our office.
+                        </div>
+</details>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-auto py-10 px-margin_desktop border-t border-outline-variant text-center">
+<p class="font-label-md text-label-md text-outline">© 2024 CityCare Clinical Nexus. All rights reserved. HIPAA Compliant Platform.</p>
+</footer>
+</main>
+</body></html>
